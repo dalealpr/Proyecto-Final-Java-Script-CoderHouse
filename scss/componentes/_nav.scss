@@ -1,0 +1,44 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: aqua;
+
+    img{
+        width: 170px;
+        margin-left: 70px;
+    }
+
+    nav{
+        height: 50px;
+        display: flex;
+        flex: 1;
+        align-items:center ;
+        text-align: right;
+
+        ul{
+            width: 100%;
+            height: 100%;
+            margin-right: 70px;
+            display: inline-block;
+            background-color: #5900ff;
+
+            li{
+                height: 100%;
+                display: inline-block;
+                margin-right: 20px;
+                background-color: #ff00ff;
+
+                a{
+                    height: 100%;
+                    padding: 0 20px;
+                    display: flex;
+                    align-items:center ;
+                    background-color: #e5ff00;
+                }
+            }
+        }
+    }
+
+}

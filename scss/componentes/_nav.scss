@@ -1,44 +1,45 @@
 .navbar{
     display: flex;
     align-items: center;
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: aqua;
 
-    img{
-        width: 170px;
-        margin-left: 70px;
+    .img_logo{
+        width: 140px;
+        margin-left: 160px;
     }
 
     nav{
         height: 50px;
         display: flex;
         flex: 1;
-        align-items:center ;
-        text-align: right;
+        justify-content: end;
 
-        ul{
-            width: 100%;
+        ul{width: 100%;
+            display: flex;
+            justify-content: end;
             height: 100%;
-            margin-right: 70px;
-            display: inline-block;
-            background-color: #5900ff;
 
             li{
+                display: flex;
+                justify-content: baseline;
                 height: 100%;
-                display: inline-block;
-                margin-right: 20px;
-                background-color: #ff00ff;
 
                 a{
-                    height: 100%;
-                    padding: 0 20px;
+                    margin-right: 10px;
+                    padding: 15px;
                     display: flex;
                     align-items:center ;
-                    background-color: #e5ff00;
+                    justify-content: center;
                 }
             }
         }
     }
+
+    .img_shop-cont{
+        margin-right: 160px;
+        .img_shop{
+            width: 45px;
+        }
+    }
+
 
 }

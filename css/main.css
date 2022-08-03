@@ -74,6 +74,43 @@ img {
     .navbar .img_shop-cont .img_shop {
       width: 45px; }
 
+.cont-productos {
+  width: 100%;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 300; }
+
+.nav2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #131313;
+  padding: 25px 0; }
+  .nav2 .link_img_logo {
+    width: 150px;
+    margin-left: 120px; }
+    .nav2 .link_img_logo .img_logo {
+      width: 150px; }
+  .nav2 .buscador {
+    width: 500px;
+    height: 40px;
+    padding-left: 42px;
+    border-radius: 20px;
+    outline: none;
+    border: 3px solid #4c0053;
+    background: #fff url("../assets/images/ico/ico-busqueda4.png") no-repeat 5px; }
+  .nav2 nav ul {
+    display: flex;
+    align-items: center;
+    gap: 30px; }
+    .nav2 nav ul li a {
+      color: #ffffff;
+      font-size: 17px;
+      font-weight: 400; }
+  .nav2 .img_shop2 {
+    width: 40px;
+    margin-right: 100px; }
+
 header {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -94,14 +131,22 @@ header {
       header .header-text .header-text_cont h1 {
         font-size: 40px;
         font-weight: 900; }
-  header .header-img {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-    header .header-img img {
-      margin-right: 120px;
-      width: 550px; }
+
+.btn-conoce {
+  width: 90px;
+  background: #3e015a;
+  color: #fff;
+  padding: 8px 30px;
+  border-radius: 30px; }
+
+.header-img {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .header-img img {
+    margin-right: 120px;
+    width: 550px; }
 
 main {
   width: 100%; }
@@ -268,6 +313,37 @@ main {
           color: #fff;
           padding: 8px 30px;
           border-radius: 30px; }
+
+.cont-productos main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .cont-productos main .productos-titulo {
+    margin: 60px 0;
+    font-size: 30px;
+    text-align: center; }
+  .cont-productos main .cont-productos-main {
+    width: 78%;
+    margin-top: 20px;
+    margin-bottom: 150px;
+    gap: 120px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: baseline;
+    align-items: center; }
+    .cont-productos main .cont-productos-main .sect_mv_01 {
+      height: 100%;
+      align-items: center;
+      justify-content: end; }
+      .cont-productos main .cont-productos-main .sect_mv_01 img {
+        width: 195px; }
+      .cont-productos main .cont-productos-main .sect_mv_01 p {
+        margin-bottom: 20px; }
+      .cont-productos main .cont-productos-main .sect_mv_01 .btn {
+        background: #008800;
+        color: #fff;
+        padding: 8px 30px;
+        border-radius: 30px; }
 
 footer {
   width: 100%;

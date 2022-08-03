@@ -1,26 +1,26 @@
-header{
+header {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: center;
 
-    .header-text{
+    .header-text {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center; 
-        align-items: center;   
+        justify-content: center;
+        align-items: center;
 
 
-        .header-text_cont{
+        .header-text_cont {
             width: 50%;
             display: flex;
             flex-direction: column;
             margin-left: 160px;
             gap: 28px;
 
-            justify-content: center; 
+            justify-content: center;
 
-            h1{
+            h1 {
                 font-size: 40px;
                 font-weight: 900;
             }
@@ -29,16 +29,26 @@ header{
 
     }
 
-    .header-img{
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+}
+
+.btn-conoce {
+    width: 90px;
+    background: #3e015a;
+    color: #fff;
+    padding: 8px 30px;
+    border-radius: 30px;
+}
+
+.header-img {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
 
-        img{
-            margin-right: 120px;
-            width: 550px;
-        }
+    img {
+        margin-right: 120px;
+        width: 550px;
+
     }
 }

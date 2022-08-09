@@ -28,6 +28,8 @@
         href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400&family=Roboto:wght@300;500;700&display=swap"
         rel="stylesheet">
 
+    <!-- Libreria JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Titulo de la pagina -->
     <title>DX System Store</title>
@@ -44,8 +46,9 @@
             <!--** NAVIGATION BAR **-->
             <div class="navbar">
 
-                <a class="link_img_logo" href="index.html"><img class="img_logo" src="assets/images/logo/logo_ss.png" alt=""></a>
-                
+                <a class="link_img_logo" href="index.html"><img class="img_logo" src="assets/images/logo/logo_ss.png"
+                        alt=""></a>
+
 
                 <nav>
                     <ul>
@@ -57,8 +60,24 @@
                     </ul>
                 </nav>
 
-                <a class="img_shop-cont" href="#"><img class="img_shop" src="assets/images/nav/shopping-cart.png" alt=""></a>
-                
+                <!-- Boton Carrito -->
+                <div class="carrito_cont">
+                    <span id="numCar" class="numCar-total">0</span>
+                    <a class="img_shop-cont2" href="#" onclick="generarCardsCPopUp()"><img class="img_shop2" src="assets/images/ico/carrito-02.png"
+                            alt=""></a>
+                </div>
+
+                <!-- PopUP -->
+                <div class="carrito-overlay">
+                    <div class="popup">
+                        <div class="close-cont"><a href="#" class="close">X</a></div>
+
+                        <div class="cont-pop-carrito" id="cont-prod-carrito">
+                   
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- ---------------------------------------------------------------------------------------------------- -->
@@ -187,6 +206,7 @@
     </div>
     <!-- Link a Java Script -->
     <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
     <script src="js/main.js"></script>
 </body>
 

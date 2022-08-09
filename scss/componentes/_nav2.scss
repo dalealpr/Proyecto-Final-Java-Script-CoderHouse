@@ -16,7 +16,7 @@
         width: 150px;
         margin-left: 120px;
 
-        .img_logo{
+        .img_logo {
             width: 150px;
         }
     }
@@ -48,8 +48,163 @@
         }
     }
 
-    .img_shop2 {
-        width: 40px;
-        margin-right: 100px;
+    .carrito_cont {
+        display: flex;
+        align-items: center;
+
+        .numCar-total{
+            color: rgb(36, 36, 36);
+            font-size: 12px;
+            font-weight:700;
+            background-color: #e4e4e4;
+            padding: 6px;
+            border-radius: 100%;
+        }
+
+        .img_shop2 {
+            width: 40px;
+            margin-right: 100px;
+        }
+
+    }
+
+
+    .carrito-overlay {
+        display: none;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background-color: rgba(29, 29, 29, 0.336);
+
+        .popup {
+            top: 0;
+            right: 0;
+            background-color: #ffffff;
+            height: 100%;
+            width: 32%;
+            position: absolute;
+
+
+            .close-cont {
+                width: 100%;
+                height: 6%;
+                background-color: #dddddd;
+                display: flex;
+                align-items: center;
+                justify-content: end;
+
+
+                .close {
+                    width: 10%;
+                    height: 100%;
+                    font-size: 34px;
+                    font-weight: 300;
+                    color: #fff;
+                    background: #3e015a;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+            }
+
+
+            .cont-pop-carrito::-webkit-scrollbar {
+                width: 12px;
+                background: #b6b6b6;
+            }
+
+            .cont-pop-carrito::-webkit-scrollbar-thumb {
+                background: #1d1d1d;
+            }
+
+            .cont-pop-carrito {
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow-y: scroll;
+
+
+                .titulo-p-carrito {
+                    margin-top: 40px;
+                    margin-left: 20px;
+                    font-size: 18px;
+                }
+
+
+                .pop-cont2 {
+                    display: flex;
+                    align-items: center;
+
+                    .producto-img {
+                        margin-left: 20px;
+                        width: 180px;
+                    }
+                }
+
+                .cont-popNum {
+                    margin: 0 40px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    font-weight: 300;
+                    gap: 20px;
+
+
+                    .cont-popCantidad {
+                        border: 1px solid #d1d1d19c;
+                        display: flex;
+                        align-items: center;
+                        border-radius: 5px;
+
+                        .menos {
+                            padding: 5px 12px;
+                            background-color: #cecece;
+                        }
+
+                        .popCantidad {
+                            padding: 5px 12px;
+                        }
+
+                        .mas {
+                            padding: 5px 12px;
+                            background-color: #cecece;
+                        }
+                    }
+                }
+
+                .precio-el-cont {
+                    margin-left: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+
+                    .popPrecio {
+                        font-size: 28px;
+                    }
+
+                    .eliminar {
+                        width: 30px;
+                        background: #3e015a;
+                        color: #fff;
+                        font-size: 13px;
+                        padding: 7px 30px;
+                        border-radius: 40px;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                }
+            }
+        }
     }
 }

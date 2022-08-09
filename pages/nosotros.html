@@ -9,6 +9,9 @@
     <!-- Link a CSS -->
     <link rel="stylesheet" href="../css/main.css">
 
+    <!-- Libreria JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!--Linkeo fuente Roboto-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,15 +46,41 @@
                 </ul>
             </nav>
 
-            <a class="img_shop-cont2" href="#"><img class="img_shop2" src="../assets/images/ico/carrito-01.png"
-                    alt=""></a>
+            <!-- Boton Carrito -->
+            <div class="carrito_cont">
+                <span id="numCar" class="numCar-total">0</span>
+                <a class="img_shop-cont" id="img_shop_btn" href="#" onclick="generarCardsCPopUp()"><img
+                        class="img_shop2" src="../assets/images/ico/carrito-01.png" alt=""></a>
+            </div>
+
+
+            <!-- PopUP -->
+            <div class="carrito-overlay">
+                <div class="popup">
+                    <div class="close-cont"><a href="#" class="close">X</a></div>
+                    <div class="cont-pop-carrito" id="cont-prod-carrito">
+
+                    </div>
+                </div>
+            </div>
 
         </div>
 
 
         <!-- MAIN -->
         <main>
-            <h2>Nosotros</h2>
+            <div class="quienesSomos_img">
+                <h2>Quienes <br>Somos</h2>
+            </div>
+
+            <div class="text-qS-cont">
+                <p>DX System Store es una tienda chilena la cual empezo sus operaciones en enero de 2015.
+                    nos dedicamos al rubro de las tarjetas graficas, contamos con 10 tiendas y mas de 750 colaboradores
+                    a lo lardo y ancho del país.
+                </p>
+
+                <img class="img_tienda" src="../assets/images//nosotros/nosotros_tienda.jpg" alt="">
+            </div>
         </main>
 
 
@@ -113,6 +142,11 @@
 
         <!-- ---------------------------------------------------------------------------------------------------- -->
     </div>
+    <!-- Link a Java Script -->
+    <script src="../js/productos2.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/pages.js"></script>
+
 </body>
 
 </html>

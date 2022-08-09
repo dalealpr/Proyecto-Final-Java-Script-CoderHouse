@@ -9,6 +9,9 @@
     <!-- Link a CSS -->
     <link rel="stylesheet" href="../css/main.css">
 
+    <!-- Libreria JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!--Linkeo fuente Roboto-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +31,8 @@
         <!-- NAV -->
         <div class="nav2">
 
-            <a class="link_img_logo" href="../index.html"><img class="img_logo" src="../assets/images/logo/logo_ss.png" alt=""></a>
+            <a class="link_img_logo" href="../index.html"><img class="img_logo" src="../assets/images/logo/logo_ss.png"
+                    alt=""></a>
 
             <input type="text" name="search" placeholder="Buscar" class="buscador" autocomplete="off">
 
@@ -42,8 +46,22 @@
                 </ul>
             </nav>
 
-            <a class="img_shop-cont2" href="#"><img class="img_shop2" src="../assets/images/ico/carrito-01.png"
-                    alt=""></a>
+            <!-- Boton Carrito -->
+            <div class="carrito_cont">
+                <span id="numCar" class="numCar-total">0</span>
+                <a class="img_shop-cont" id="img_shop_btn" href="#" onclick="generarCardsCPopUp()"><img
+                        class="img_shop2" src="../assets/images/ico/carrito-01.png" alt=""></a>
+            </div>
+
+            <!-- PopUP -->
+            <div class="carrito-overlay">
+                <div class="popup">
+                    <div class="close-cont"><a href="#" class="close">X</a></div>
+                    <div class="cont-pop-carrito" id="cont-prod-carrito">
+
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -113,6 +131,11 @@
         <!-- ---------------------------------------------------------------------------------------------------- -->
 
     </div>
+    <!-- Link a Java Script -->
+    <script src="../js/productos2.js"></script>
+    <script src="../js/carrito.js"></script>
+    <script src="../js/pages.js"></script>
+
 </body>
 
 </html>

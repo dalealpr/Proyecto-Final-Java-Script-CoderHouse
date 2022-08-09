@@ -116,7 +116,7 @@ body::-webkit-scrollbar:vertical {
                 top: 0;
                 right: 0;
                 width: 100%;
-                height: 100%;
+                height: 70%;
                 position: relative;
                 overflow-y: scroll;
 
@@ -194,6 +194,63 @@ body::-webkit-scrollbar:vertical {
                         align-items: center;
                     }
 
+                }
+
+            }
+
+            .totales-cPopUp{
+                height: 24%;
+                .tCPopUp{
+                    background-color: #eeeeee;
+                    height: 30%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 80px;
+
+                    .tCPopUp-total{
+                        font-size: 22px;
+                    }
+
+                    .tCPopUp-precio{
+                        font-size: 25px;
+                    }
+                }
+
+                .btnTotal{
+                    height: 70%;
+                    background-color: #b1b1b1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 30px;
+
+                    .btnTotal-01{
+                        width: 40%;
+                        height: 38px;
+                        background: #3e015a;
+                        color: #fff;
+                        font-size: 13px;
+                        border-radius: 40px;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    
+                    .btnTotal-02{
+                        width: 40%;
+                        height: 38px;
+                        background: #3e015a;
+                        color: #fff;
+                        font-size: 13px;
+                        border-radius: 40px;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
                 }
             }
         }

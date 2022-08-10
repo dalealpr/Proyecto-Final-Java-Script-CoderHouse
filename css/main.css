@@ -188,9 +188,11 @@ body::-webkit-scrollbar:vertical {
           align-items: center;
           padding: 0 80px; }
           .navbar .carrito-overlay .popup .totales-cPopUp .tCPopUp .tCPopUp-total {
-            font-size: 22px; }
+            font-size: 22px;
+            font-weight: 200; }
           .navbar .carrito-overlay .popup .totales-cPopUp .tCPopUp .tCPopUp-precio {
-            font-size: 25px; }
+            font-size: 25px;
+            font-weight: 500; }
         .navbar .carrito-overlay .popup .totales-cPopUp .btnTotal {
           height: 70%;
           background-color: #b1b1b1;
@@ -203,7 +205,7 @@ body::-webkit-scrollbar:vertical {
             height: 38px;
             background: #3e015a;
             color: #fff;
-            font-size: 13px;
+            font-size: 15px;
             border-radius: 40px;
             display: flex;
             justify-content: center;
@@ -213,7 +215,7 @@ body::-webkit-scrollbar:vertical {
             height: 38px;
             background: #3e015a;
             color: #fff;
-            font-size: 13px;
+            font-size: 15px;
             border-radius: 40px;
             display: flex;
             justify-content: center;
@@ -368,9 +370,11 @@ body::-webkit-scrollbar:vertical {
           align-items: center;
           padding: 0 80px; }
           .nav2 .carrito-overlay .popup .totales-cPopUp .tCPopUp .tCPopUp-total {
-            font-size: 22px; }
+            font-size: 22px;
+            font-weight: 200; }
           .nav2 .carrito-overlay .popup .totales-cPopUp .tCPopUp .tCPopUp-precio {
-            font-size: 25px; }
+            font-size: 25px;
+            font-weight: 500; }
         .nav2 .carrito-overlay .popup .totales-cPopUp .btnTotal {
           height: 70%;
           background-color: #b1b1b1;
@@ -383,8 +387,9 @@ body::-webkit-scrollbar:vertical {
             height: 38px;
             background: #3e015a;
             color: #fff;
-            font-size: 13px;
+            font-size: 15px;
             border-radius: 40px;
+            font-weight: 500;
             display: flex;
             justify-content: center;
             align-items: center; }
@@ -393,8 +398,9 @@ body::-webkit-scrollbar:vertical {
             height: 38px;
             background: #3e015a;
             color: #fff;
-            font-size: 13px;
+            font-size: 15px;
             border-radius: 40px;
+            font-weight: 500;
             display: flex;
             justify-content: center;
             align-items: center; }

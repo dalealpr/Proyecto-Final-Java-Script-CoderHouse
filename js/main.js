@@ -3,6 +3,9 @@
 const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
 //Escribir numero de productos / Precio total de productos 
 document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
+//Escribir precio total de productos 
+document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
+
 //Crear los productos guardados
 
 
@@ -66,6 +69,8 @@ productosTop.forEach((item) => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
         const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
         document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
+        //Total dentro del popUp
+        document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
 
 
         //RENDERIZAR PRODUCTOS EN EL CARRITO
@@ -73,8 +78,7 @@ productosTop.forEach((item) => {
         carrito.forEach((item) => {
             let contadorP = 1;
             document.getElementById("cont-prod-carrito").innerHTML += `
-
-        
+        <div class="content-pr-car">
         <h5 class="titulo-p-carrito">${item.nombre}</h5>
 
         <div class="pop-cont2">
@@ -92,10 +96,17 @@ productosTop.forEach((item) => {
             </div>
                 <div class="precio-el-cont">
                    <p class="popPrecio">$${item.precio}</p>
-                   <a href="#" class="eliminar">Eliminar</a>
+                   <a href="#" class="eliminar"  id="btnEliminar">Eliminar</a>
                 </div>
             </div>
-        </div> `
+        </div> 
+        </div> 
+        `
+
+        //BOTON ELIMINAR
+        const btnEliminar = document.getElementById("btnEliminar")
+        btnEliminar.addEventListener('click', eliminarElementoDelCarrito)
+
         })
     })
 });
@@ -111,14 +122,17 @@ productosNuevos.forEach((item) => {
         localStorage.setItem('carrito', JSON.stringify(carrito))
         const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
         document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
+        //Total dentro del popUp
+        document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
 
 
         //RENDERIZAR PRODUCTOS EN EL CARRITO
         document.getElementById("cont-prod-carrito").innerHTML = "";
         carrito.forEach((item) => {
             let contadorP2 = 1;
-            document.getElementById("cont-prod-carrito").innerHTML += `
+            const contCarroC = document.getElementById("cont-prod-carrito").innerHTML += `
     
+            <div class="content-pr-car">
             <h5 class="titulo-p-carrito">${item.nombre}</h5>
     
             <div class="pop-cont2">
@@ -137,29 +151,36 @@ productosNuevos.forEach((item) => {
 
                     <div class="precio-el-cont">
                         <p class="popPrecio">$${item.precio}</p>
-                        <a href="#" class="eliminar">Eliminar</a>
+                        <a href="#" class="eliminar" id="btnEliminar">Eliminar</a>
                     </div>
                 </div>
             </div>
+            </div>
             `
+        //BOTON ELIMINAR
+        const btnEliminar = document.getElementById("btnEliminar")
+        btnEliminar.addEventListener('click', eliminarElementoDelCarrito)
+
         })
+
     })
+
 });
 
 
 //RENDERIZAR PRODUCTOS CLICK POPUP
-function generarCardsCPopUp(){
-        
+function generarCardsCPopUp() {
+
     //Storage
-        localStorage.setItem('carrito', JSON.stringify(carrito))
+    localStorage.setItem('carrito', JSON.stringify(carrito))
 
-        //RENDERIZAR PRODUCTOS EN EL CARRITO
-        document.getElementById("cont-prod-carrito").innerHTML = "";
-        carrito.forEach((item) => {
-            let contadorP = 1;
-            document.getElementById("cont-prod-carrito").innerHTML += `
+    //RENDERIZAR PRODUCTOS EN EL CARRITO
+    document.getElementById("cont-prod-carrito").innerHTML = "";
+    carrito.forEach((item) => {
+        let contadorP = 1;
+        document.getElementById("cont-prod-carrito").innerHTML += `
 
-        
+        <div class="content-pr-car">
         <h5 class="titulo-p-carrito">${item.nombre}</h5>
 
         <div class="pop-cont2">
@@ -177,11 +198,24 @@ function generarCardsCPopUp(){
             </div>
                 <div class="precio-el-cont">
                    <p class="popPrecio">$${item.precio}</p>
-                   <a href="#" class="eliminar">Eliminar</a>
+                   <a href="#" class="eliminar" id="btnEliminar">Eliminar</a>
                 </div>
             </div>
-        </div> `
-        })
+        </div> 
+        </div>
+        `
+
+        //BOTON ELIMINAR
+        const btnEliminar = document.getElementById("btnEliminar")
+        btnEliminar.addEventListener('click', eliminarElementoDelCarrito)
+
+    })
+}
+
+//FUNCION ELIMINAR ELEMENTO DEL CARRITO
+function eliminarElementoDelCarrito(item) {
+    const botonClickeado = item.target;
+    botonClickeado.closest('.content-pr-car').remove();
 }
 
 

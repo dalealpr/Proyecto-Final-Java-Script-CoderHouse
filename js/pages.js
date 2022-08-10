@@ -4,6 +4,8 @@
 const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
 //Escribir numero de productos / Precio total de productos 
 document.getElementById('numCar').innerHTML = carrito.length +  " - ($"+ totalNuevos+ ")";
+//Escribir precio total de productos 
+document.getElementById('tpp-precio').innerHTML =  "$" + totalNuevos;
 
 
 

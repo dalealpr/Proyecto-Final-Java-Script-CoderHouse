@@ -42,11 +42,9 @@ const productos = [
 
 //Array Productos top
 const productosTop = productos.filter(producto => producto.nombre === 'Palit RTX 3060' || producto.nombre === 'Asus RTX 3050'|| producto.nombre ==='Asus RTX 3060'|| producto.nombre === 'MSI RTX 3080');
-    console.log(productosTop);
 
 
 //Array Productos Nuevos
 const productosNuevos = productos.filter(producto => producto.nombre === 'Asus RTX 3080Ti' || producto.nombre === 'Palit RTX 3070Ti'||  producto.nombre ==='Asus RTX 3070Ti'|| producto.nombre === 'Asus RTX 3090Ti');
-    console.log(productosNuevos);
 
 

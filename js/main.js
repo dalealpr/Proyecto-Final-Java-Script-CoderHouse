@@ -1,10 +1,5 @@
 
-//Sumatoria de precio de los productos
-const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
-//Escribir numero de productos / Precio total de productos 
-document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
-//Escribir precio total de productos dentro del PopUp
-document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
+actualizar()
 
 //--------------------------------------------------------------------------------------------//
 
@@ -13,7 +8,7 @@ document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
 const contTop = document.querySelector('.sect_mv_cont');
 productosTop.forEach((item) => {
     const idBoton = `add-cart${item.id}`
-    contTop.innerHTML += 
+    contTop.innerHTML +=
         `<div class="sect_mv_01">
         <img class="producto-img" src=${item.img} alt="">
         <h4 class="producto-titulo">${item.nombre}</h4>
@@ -56,14 +51,8 @@ productosTop.forEach((item) => {
     const idBoton = `add-cart${item.id}`
     document.getElementById(idBoton).addEventListener('click', () => {
         carrito.push(item)
-        console.log(carrito)
 
-        //Storage
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-        const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
-        document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
-        //Total dentro del popUp
-        document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
+        actualizar()
 
     })
 });
@@ -75,15 +64,8 @@ productosNuevos.forEach((item) => {
     const idBoton = `add-cart${item.id}`
     document.getElementById(idBoton).addEventListener('click', () => {
         carrito.push(item)
-        console.log(carrito)
 
-        //Storage
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-        const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
-        document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
-        //Total dentro del popUp
-        document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
-
+        actualizar()
     })
 
 });
@@ -99,10 +81,12 @@ function generarCardsCPopUp() {
     //RENDERIZAR PRODUCTOS EN EL CARRITO
     document.getElementById("cont-prod-carrito").innerHTML = "";
     carrito.forEach((item) => {
+        // const idBoton2 = `cart-${item.id}`
         let contadorP = 1;
-        document.getElementById("cont-prod-carrito").innerHTML += 
 
-       `<div class="content-pr-car">
+        document.getElementById("cont-prod-carrito").innerHTML +=
+
+            `<div class="content-pr-car" id="cont-prcar2">
             <h5 class="titulo-p-carrito">${item.nombre}</h5>
 
             <div class="pop-cont2">
@@ -120,29 +104,59 @@ function generarCardsCPopUp() {
                 </div>
                     <div class="precio-el-cont">
                        <p class="popPrecio">$${item.precio}</p>
-                       <a href="#" class="eliminar" id="btnEliminar">Eliminar</a>
+                       <a href="#" class="eliminar" onclick="borrarDelCarrito(${item.id})">Eliminar</a>
                     </div>
                 </div>
             </div> 
         </div>`
 
-        //BOTON ELIMINAR
-        const conteneCarro = document.getElementById("cont-prod-carrito")
-        conteneCarro.querySelector('.eliminar').addEventListener('click', eliminarElementoDelCarrito)
-
     })
+
+    console.log(carrito)
 }
 
 //--------------------------------------------------------------------------------------------//
 
-//FUNCION ELIMINAR ELEMENTO DEL CARRITO
-function eliminarElementoDelCarrito(event) {
-    const botonClickeado = event.target;
-    botonClickeado.closest('.content-pr-car').remove();
-    console.log('eliminado');
+//***** FUNCIONES *****/
+
+//FUNCION ACTUALIZAR PRECIOS Y CANTIDAD DE PRODUCTOS DEL CARRITO
+function actualizar() {
+    //Storage
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+    const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
+    document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
+    //Total dentro del popUp
+    document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
 }
 
 
+//FUNCION BORRAR ELEMENTOS DEL CARRITO
+function borrarDelCarrito(idProducto) {
+    const buscProducto = carrito.find((item) => item.id === idProducto)
+    let index = carrito.indexOf(buscProducto)
+
+    //Borrar producto del PopUp
+    let contCarrit = document.getElementById('cont-prcar2')
+    contCarrit.closest('.content-pr-car').remove();
+    console.log('eliminado ')
+
+    if (index !== -1) {
+        carrito.splice(index, 1)
+    }
+
+    console.log(carrito)
+    actualizar()
+}
 
 
+//FUNCION BORRAR TODOS LOS ELEMENTOS DEL ARRAY
+function borrarTodoDelCarrito(){
+    document.querySelectorAll('.content-pr-car').forEach(cont =>{
+        cont.remove();
+    })
+    //Borrar todo el array carrito
+    carrito = []
+    console.log(carrito)
+    actualizar()
+}
 

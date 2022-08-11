@@ -1,2 +1,2 @@
 //CARRITO
-const carrito = JSON.parse(localStorage.getItem('carrito')) ??[];
+let carrito = JSON.parse(localStorage.getItem('carrito')) ??[];

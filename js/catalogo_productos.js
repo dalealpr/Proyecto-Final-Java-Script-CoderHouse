@@ -38,10 +38,21 @@ $(document).ready(function () {
 productos2.forEach((item) => {
     const idBoton = `add-cart${item.id}`
     document.getElementById(idBoton).onclick = () => {
+        let nombrePr = item.nombre
         carrito.push(item)
         console.log(carrito)
 
         actualizar();
+
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title:nombrePr,
+            html:
+            'ha sido agregado al <b>carrito</b>',
+            showConfirmButton: false,
+            timer: 1800
+          })
 
     }
 })
@@ -72,9 +83,9 @@ function generarCardsCPopUp() {
                     <p class="popId">ID: ${item.id}</p>
 
                     <div class="cont-popCantidad">
-                       <a href="#" class="menos" id="btn-menos">-</a>
-                       <p class="popCantidad" id="btn-cant">${contadorP}</p>
-                       <a href="#" class="mas">+</a>
+                        <a href="#" class="menos" id="dism" onclick="cantProd(this)">-</a>
+                        <p class="popCantidad" id="contador" value="">${item.contador}</p>
+                        <a href="#" class="mas" id="aum" onclick="cantProd(this)">+</a>
                     </div>
                 </div>
 
@@ -93,6 +104,19 @@ function generarCardsCPopUp() {
 
 //--------------------------------------------------------------------------------------------//
 
+//***** FUNCIONES *****/
+//FUNCION NUMERO PRODUCTOS DEL CARRITO
+let valor = 1;
+function cantProd(boton) {
+    console.log(boton.id)
+    if (boton.id == 'aum' && valor > 0 && carrito.find((item) => item.cantidad > item.contador)) {
+        valor++;
+    } else if (boton.id == 'dism' && valor > 1) {
+        valor--;
+    }
+
+    document.getElementById('contador').textContent = valor;
+}
 
 //FUNCION ACTUALIZAR PRECIOS Y CANTIDAD DE PRODUCTOS DEL CARRITO
 function actualizar() {
@@ -125,8 +149,8 @@ function borrarDelCarrito(idProducto) {
 
 
 //FUNCION BORRAR TODOS LOS ELEMENTOS DEL ARRAY
-function borrarTodoDelCarrito(){
-    document.querySelectorAll('.content-pr-car').forEach(cont =>{
+function borrarTodoDelCarrito() {
+    document.querySelectorAll('.content-pr-car').forEach(cont => {
         cont.remove();
     })
     //Borrar todo el array carrito
@@ -134,3 +158,6 @@ function borrarTodoDelCarrito(){
     console.log(carrito)
     actualizar()
 }
+
+//--------------------------------------------------------------------------------------------//
+

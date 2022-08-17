@@ -12,6 +12,9 @@
     <!-- Libreria JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <!-- Libreria SweetAlert -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+
     <!--Linkeo fuente Roboto-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,18 +65,19 @@
 
                     </div>
 
-                        <!-- Totales -->
-                        <div class="totales-cPopUp">
-                            <div class="tCPopUp">
-                                <p class="tCPopUp-total">TOTAL:</p>
-                                <p class="tCPopUp-precio" id="tpp-precio">0</p>
-                            </div>
-
-                            <div class="btnTotal">
-                                <a class="btnTotal-01" href="">Iniciar Pago</a>
-                                <a class="btnTotal-02" id="btnEliminarTodo" onclick="borrarTodoDelCarrito()" href="#">Cancelar todo</a>
-                            </div>
+                    <!-- Totales -->
+                    <div class="totales-cPopUp">
+                        <div class="tCPopUp">
+                            <p class="tCPopUp-total">TOTAL:</p>
+                            <p class="tCPopUp-precio" id="tpp-precio">0</p>
                         </div>
+
+                        <div class="btnTotal">
+                            <a class="btnTotal-01" href="">Iniciar Pago</a>
+                            <a class="btnTotal-02" id="btnEliminarTodo" onclick="borrarTodoDelCarrito()"
+                                href="#">Cancelar todo</a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -151,6 +155,7 @@
 
 
     </div>
+
     <!-- Link a Java Script -->
     <script src="../js/stockSec.js"></script>
     <script src="../js/carrito.js"></script>

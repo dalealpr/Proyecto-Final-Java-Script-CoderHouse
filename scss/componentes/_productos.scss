@@ -1,4 +1,7 @@
+
 .cont-productos {
+
+
 
     main {
         display: flex;
@@ -36,12 +39,14 @@
                     margin-bottom: 20px;
                 }
 
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
+                .img_shop_ico{
+                    display: none;
+                    width: 30px;
                 }
+                .img_shop_ico:hover{
+                    display: flex;
+                }
+
             }
         }
     }

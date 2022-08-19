@@ -5,30 +5,41 @@ actualizar()
 
 //RENDERIZAR PORDUCTOS DEL ARRAY
 //1.- Array Productos Top
-const contTop = document.querySelector('.sect_mv_cont');
-productosTop.forEach((item) => {
-    const idBoton = `add-cart${item.id}`
-    contTop.innerHTML +=
-        `<div class="sect_mv_01">
-        <img class="producto-img" src=${item.img} alt="">
-        <h4 class="producto-titulo">${item.nombre}</h4>
-        <p class="producto-precio">$${item.precio}</p>
-        <a href="#" class="btn" id="${idBoton}" data-id="${item.id}">Agregar al carrito</a>
-    </div>`
-});
+//funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
+creacionProductosTop()
 
-//2.- Array Productos Nuevos
-const contNuevos = document.querySelector('.sect_np_cont');
-productosNuevos.forEach((item) => {
-    const idBoton = `add-cart${item.id}`
-    contNuevos.innerHTML +=
-        `<div class="sect_np_01">
-        <img class="producto-img" src=${item.img} alt="">
-        <h4 class="producto-titulo">${item.nombre}</h4>
-        <p class="producto-precio">$${item.precio}</p>
-        <a href="#" class="btn" id="${idBoton}" data-id="${item.id}">Agregar al carrito</a>
-    </div>`
+let acumulador = ``;
+productosTop.forEach((producto) => {
+    const idBoton = `add-cart${producto.id}`
+    acumulador +=
+        `
+                <div class="sect_mv_01">
+                <img class="producto-img" src=${producto.img} alt="">
+                <h4 class="producto-titulo">${producto.nombre}</h4>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">Agregar al carrito</button>
+                </div>
+                `
 })
+document.getElementById('sect_mv_cont').innerHTML = acumulador;
+
+//2.- Productos Nuevos
+//funcion que crea un nuevo array con los "productos nuevos" del (stockProductos.json)
+creacionProductosNuevos()
+
+let acumulador2 = ``;
+productosNuevos.forEach((producto) => {
+
+    const idBoton = `add-cart${producto.id}`
+    acumulador2 +=
+        `<div class="sect_np_01">
+                <img class="producto-img" src=${producto.img} alt="">
+                <h4 class="producto-titulo">${producto.nombre}</h4>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">Agregar al carrito</button>
+                </div>`
+})
+document.getElementById('sect_np_cont').innerHTML = acumulador2;
 
 //--------------------------------------------------------------------------------------------//
 
@@ -47,12 +58,15 @@ $(document).ready(function () {
 //--------------------------------------------------------------------------------------------//
 
 //AGREGAR (ProductosTop) AL CARRITO
-productosTop.forEach((item) => {
-    const idBoton = `add-cart${item.id}`
-    document.getElementById(idBoton).addEventListener('click', () => {
-        carrito.push(item)
+//funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
+creacionProductosTop()
+
+productosTop.forEach((producto) => {
+    const idBoton = `add-cart${producto.id}`
+    document.getElementById(idBoton).onclick = () => {
+        carrito.push(producto)
         console.log(carrito)
-        let nombrePr = item.nombre
+        let nombrePr = producto.nombre
 
         //Actualizar carrito compra
         actualizar();
@@ -60,24 +74,28 @@ productosTop.forEach((item) => {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title:nombrePr,
+            title: nombrePr,
             html:
-            'ha sido agregado al <b>carrito</b>',
+                'ha sido agregado al <b>carrito</b>',
             showConfirmButton: false,
             timer: 1800
-          })
+        })
 
-    })
-});
+    }
+})
+
 
 //--------------------------------------------------------------------------------------------//
 
 //AGREGAR (ProductosNuevos) AL CARRITO
-productosNuevos.forEach((item) => {
-    const idBoton = `add-cart${item.id}`
-    document.getElementById(idBoton).addEventListener('click', () => {
-        carrito.push(item)
-        let nombrePr = item.nombre
+//funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
+creacionProductosNuevos()
+productosNuevos.forEach((producto) => {
+    const idBoton = `add-cart${producto.id}`
+    document.getElementById(idBoton).onclick = () => {
+        carrito.push(producto)
+        console.log(carrito)
+        let nombrePr = producto.nombre
 
         //Actualizar carrito compra
         actualizar()
@@ -85,16 +103,15 @@ productosNuevos.forEach((item) => {
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title:nombrePr,
+            title: nombrePr,
             html:
-            'ha sido agregado al <b>carrito</b>',
+                'ha sido agregado al <b>carrito</b>',
             showConfirmButton: false,
             timer: 1800
-          })
+        })
+    }
+})
 
-    })
-
-});
 
 //--------------------------------------------------------------------------------------------//
 
@@ -188,12 +205,34 @@ function borrarTodoDelCarrito() {
     Swal.fire({
         icon: 'success',
         html:
-        'Todos los productos del carrito han sido eliminados',
+            'Todos los productos del carrito han sido eliminados',
         showConfirmButton: false,
         timer: 2200
-      })
+    })
 }
 
 //--------------------------------------------------------------------------------------------//
 
+//FUNCION CREAR ARRAY PRODUCTOS TOP
+function creacionProductosTop() {
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            //Creacion de nuevo array con los productos top
+            const productosTop = informacion.filter(producto => producto.nombre === 'Palit RTX 3060' ||
+                producto.nombre === 'Asus RTX 3050' ||
+                producto.nombre === 'Asus RTX 3060' ||
+                producto.nombre === 'MSI RTX 3080');
+        })
+}
 
+function creacionProductosNuevos() {
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            const productosNuevos = informacion.filter(producto => producto.nombre === 'Asus RTX 3080Ti' ||
+                producto.nombre === 'Palit RTX 3070Ti' ||
+                producto.nombre === 'Asus RTX 3070Ti' ||
+                producto.nombre === 'Asus RTX 3090Ti');
+        })
+}

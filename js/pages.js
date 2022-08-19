@@ -26,7 +26,7 @@ function generarCardsCPopUp() {
     //RENDERIZAR PRODUCTOS EN EL CARRITO
     document.getElementById("cont-prod-carrito").innerHTML = "";
     carrito.forEach((item) => {
-        let contadorP = 0;
+        let contadorP = 1;
         document.getElementById("cont-prod-carrito").innerHTML += `
 
         <div class="content-pr-car" id="cont-prcar2">
@@ -41,7 +41,7 @@ function generarCardsCPopUp() {
 
                     <div class="cont-popCantidad">
                         <a href="#" class="menos" id="dism" onclick="cantProd(this)">-</a>
-                        <p class="popCantidad" id="contador" value="">${item.contador}</p>
+                        <p class="popCantidad" id="contador" value="">${contadorP}</p>
                         <a href="#" class="mas" id="aum" onclick="cantProd(this)">+</a>
                     </div>
                 </div>
@@ -60,18 +60,6 @@ function generarCardsCPopUp() {
 //--------------------------------------------------------------------------------------------//
 
 //***** FUNCIONES *****/
-//FUNCION NUMERO PRODUCTOS DEL CARRITO
-function cantProd(boton){
-    
-    console.log(boton.id)
-    if(boton.id == 'aum' && contadorP > 0 && carrito.find((item) => item.cantidad > contadorP)){
-        contadorP++;
-    }else if (boton.id == 'dism' && valor > 1){
-        contadorP--;
-    }
-
-    document.getElementById('contador').textContent = valor;
-}
 
 //FUNCION ACTUALIZAR PRECIOS Y CANTIDAD DE PRODUCTOS DEL CARRITO
 function actualizar() {

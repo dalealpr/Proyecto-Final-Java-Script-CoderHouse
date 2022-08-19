@@ -433,6 +433,9 @@ header {
   padding: 8px 30px;
   border-radius: 30px; }
 
+.btn-conoce:hover {
+  background: #5f008b; }
+
 .header-img {
   height: 100%;
   display: flex;
@@ -444,6 +447,15 @@ header {
 
 main {
   width: 100%; }
+  main .btn {
+    background: #3e015a;
+    color: #fff;
+    font-size: 14px;
+    padding: 9px 30px;
+    border: 0px;
+    border-radius: 30px; }
+  main .btn:hover {
+    background: #5f008b; }
   main .section_img {
     display: grid;
     grid-template-columns: 39% 22% 39%;
@@ -494,11 +506,6 @@ main {
           width: 210px; }
         main .section_mas_vendido .sect_mv_cont .sect_mv_01 p {
           margin-bottom: 20px; }
-        main .section_mas_vendido .sect_mv_cont .sect_mv_01 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
       main .section_mas_vendido .sect_mv_cont .sect_mv_02 {
         height: 100%;
         align-items: center;
@@ -507,11 +514,6 @@ main {
           width: 210px; }
         main .section_mas_vendido .sect_mv_cont .sect_mv_02 p {
           margin-bottom: 20px; }
-        main .section_mas_vendido .sect_mv_cont .sect_mv_02 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
       main .section_mas_vendido .sect_mv_cont .sect_mv_03 {
         height: 100%;
         align-items: center;
@@ -520,11 +522,6 @@ main {
           width: 210px; }
         main .section_mas_vendido .sect_mv_cont .sect_mv_03 p {
           margin-bottom: 20px; }
-        main .section_mas_vendido .sect_mv_cont .sect_mv_03 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
       main .section_mas_vendido .sect_mv_cont .sect_mv_04 {
         height: 100%;
         align-items: center;
@@ -533,11 +530,6 @@ main {
           width: 210px; }
         main .section_mas_vendido .sect_mv_cont .sect_mv_04 p {
           margin-bottom: 20px; }
-        main .section_mas_vendido .sect_mv_cont .sect_mv_04 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
   main .section_nuevos_productos {
     width: 100%;
     padding-bottom: 170px;
@@ -563,11 +555,6 @@ main {
           width: 210px; }
         main .section_nuevos_productos .sect_np_cont .sect_np_01 p {
           margin-bottom: 20px; }
-        main .section_nuevos_productos .sect_np_cont .sect_np_01 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
       main .section_nuevos_productos .sect_np_cont .sect_np_02 {
         height: 100%;
         align-items: center;
@@ -589,11 +576,6 @@ main {
           width: 210px; }
         main .section_nuevos_productos .sect_np_cont .sect_np_03 p {
           margin-bottom: 20px; }
-        main .section_nuevos_productos .sect_np_cont .sect_np_03 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
       main .section_nuevos_productos .sect_np_cont .sect_np_04 {
         height: 100%;
         align-items: center;
@@ -602,11 +584,6 @@ main {
           width: 210px; }
         main .section_nuevos_productos .sect_np_cont .sect_np_04 p {
           margin-bottom: 20px; }
-        main .section_nuevos_productos .sect_np_cont .sect_np_04 .btn {
-          background: #008800;
-          color: #fff;
-          padding: 8px 30px;
-          border-radius: 30px; }
 
 .cont-productos main {
   display: flex;
@@ -633,11 +610,11 @@ main {
         width: 195px; }
       .cont-productos main .cont-productos-main .sect_mv_01 p {
         margin-bottom: 20px; }
-      .cont-productos main .cont-productos-main .sect_mv_01 .btn {
-        background: #008800;
-        color: #fff;
-        padding: 8px 30px;
-        border-radius: 30px; }
+      .cont-productos main .cont-productos-main .sect_mv_01 .img_shop_ico {
+        display: none;
+        width: 30px; }
+      .cont-productos main .cont-productos-main .sect_mv_01 .img_shop_ico:hover {
+        display: flex; }
 
 .cont-nosotros {
   width: 100%;

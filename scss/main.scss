@@ -36,6 +36,22 @@
 main {
     width: 100%;
 
+    .btn{
+        background: #3e015a;
+        color: #fff;
+        font-size: 14px;
+        padding: 9px 30px;
+        border: 0px;
+        border-radius: 30px;
+    }
+
+    .btn:hover{
+        background: #5f008b;
+    }
+
+
+
+
     //---- Seccion Imagenes ----//
     .section_img {
         display: grid;
@@ -117,12 +133,6 @@ main {
                     margin-bottom: 20px;
                 }
 
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
-                }
             }
 
             .sect_mv_02 {
@@ -136,13 +146,6 @@ main {
 
                 p{
                     margin-bottom: 20px;
-                }
-
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
                 }
 
             }
@@ -159,13 +162,6 @@ main {
                 p{
                     margin-bottom: 20px;
                 }
-
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
-                }
             }
 
             .sect_mv_04 {
@@ -179,13 +175,6 @@ main {
 
                 p{
                     margin-bottom: 20px;
-                }
-
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
                 }
             }
         }
@@ -228,13 +217,6 @@ main {
                 p{
                     margin-bottom: 20px;
                 }
-
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
-                }
             }
 
             .sect_np_02 {
@@ -272,12 +254,6 @@ main {
                     margin-bottom: 20px;
                 }
 
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
-                }
             }
 
             .sect_np_04 {
@@ -293,17 +269,12 @@ main {
                     margin-bottom: 20px;
                 }
 
-                .btn{
-                    background: #008800;
-                    color: #fff;
-                    padding: 8px 30px;
-                    border-radius: 30px;
-                }
             }
         }
 
     }
 }
+
 
 //----------------------------------------------------//
 @import "componentes/productos";
@@ -320,3 +291,4 @@ main {
 
 //**** FOOTER****//
 @import "componentes/footer";
+

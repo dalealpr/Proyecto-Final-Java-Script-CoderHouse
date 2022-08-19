@@ -7,16 +7,31 @@ actualizar();
 //Todos los productos
 const contProductos = document.querySelector('.cont-productos-main');
 
-productos2.forEach((item) => {
-    const idBoton = `add-cart${item.id}`
-    contProductos.innerHTML +=
-        `<div class="sect_mv_01">
-    <img class="producto-img" src=${item.img} alt="">
-    <h4 class="producto-titulo">${item.nombre}</h4>
-    <p class="producto-precio">$${item.precio}</p>
-    <a href="#" class="btn" id="${idBoton}" data-id="${item.id}">Agregar al carrito</a>
-    </div>`
-});
+fetch('../stockProductos.json')
+    .then((response) => response.json())
+    .then(informacion => {
+        let acumulador = ``;
+        informacion.forEach((producto) => {
+            const idBoton = `add-cart${producto.id}`
+            acumulador +=
+                `
+            <div class="sect_mv_01">
+                <img class="producto-img" src=${producto.img} alt="">
+                <h4 class="producto-titulo">${producto.nombre}</h4>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
+                    <div class="ico_btn">
+                        <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
+                    </div>
+                    <span>Agregar al carrito</span>
+                </button>
+            </div>
+            `
+        })
+
+        document.getElementById('cont-productos-main').innerHTML = acumulador;
+
+    })
 
 //--------------------------------------------------------------------------------------------//
 
@@ -35,27 +50,31 @@ $(document).ready(function () {
 //--------------------------------------------------------------------------------------------//
 
 //AGREGAR (Productos2) AL CARRITO
-productos2.forEach((item) => {
-    const idBoton = `add-cart${item.id}`
-    document.getElementById(idBoton).onclick = () => {
-        let nombrePr = item.nombre
-        carrito.push(item)
-        console.log(carrito)
+fetch('../stockProductos.json')
+    .then((response) => response.json())
+    .then(informacion => {
+        informacion.forEach((producto) => {
+            const idBoton = `add-cart${producto.id}`
+            document.getElementById(idBoton).onclick = () => {
+                let nombrePr = producto.nombre
+                carrito.push(producto)
+                console.log(carrito)
 
-        actualizar();
+                actualizar();
 
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title:nombrePr,
-            html:
-            'ha sido agregado al <b>carrito</b>',
-            showConfirmButton: false,
-            timer: 1800
-          })
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: nombrePr,
+                    html:
+                        'ha sido agregado al <b>carrito</b>',
+                    showConfirmButton: false,
+                    timer: 1800
+                })
 
-    }
-})
+            }
+        })
+    })
 
 //--------------------------------------------------------------------------------------------//
 
@@ -84,7 +103,7 @@ function generarCardsCPopUp() {
 
                     <div class="cont-popCantidad">
                         <a href="#" class="menos" id="dism" onclick="cantProd(this)">-</a>
-                        <p class="popCantidad" id="contador" value="">${item.contador}</p>
+                        <p class="popCantidad" id="contador" value="">${contadorP}</p>
                         <a href="#" class="mas" id="aum" onclick="cantProd(this)">+</a>
                     </div>
                 </div>
@@ -105,18 +124,6 @@ function generarCardsCPopUp() {
 //--------------------------------------------------------------------------------------------//
 
 //***** FUNCIONES *****/
-//FUNCION NUMERO PRODUCTOS DEL CARRITO
-let valor = 1;
-function cantProd(boton) {
-    console.log(boton.id)
-    if (boton.id == 'aum' && valor > 0 && carrito.find((item) => item.cantidad > item.contador)) {
-        valor++;
-    } else if (boton.id == 'dism' && valor > 1) {
-        valor--;
-    }
-
-    document.getElementById('contador').textContent = valor;
-}
 
 //FUNCION ACTUALIZAR PRECIOS Y CANTIDAD DE PRODUCTOS DEL CARRITO
 function actualizar() {

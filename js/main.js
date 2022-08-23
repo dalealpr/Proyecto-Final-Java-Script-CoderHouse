@@ -6,13 +6,21 @@ actualizar()
 //RENDERIZAR PORDUCTOS DEL ARRAY
 //1.- Array Productos Top
 //funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
-creacionProductosTop()
+fetch('../stockProductos.json')
+    .then((response) => response.json())
+    .then(informacion => {
+        //Creacion de nuevo array con los productos top
+        const productosTop = informacion.filter(producto => producto.nombre === 'Palit RTX 3060' ||
+            producto.nombre === 'Asus RTX 3050' ||
+            producto.nombre === 'Asus RTX 3060' ||
+            producto.nombre === 'MSI RTX 3080');
 
-let acumulador = ``;
-productosTop.forEach((producto) => {
-    const idBoton = `add-cart${producto.id}`
-    acumulador +=
-        `
+
+        let acumulador = ``;
+        productosTop.forEach((producto) => {
+            const idBoton = `add-cart${producto.id}`
+            acumulador +=
+                `
                 <div class="sect_mv_01">
                 <img class="producto-img" src=${producto.img} alt="">
                 <h4 class="producto-titulo">${producto.nombre}</h4>
@@ -20,27 +28,35 @@ productosTop.forEach((producto) => {
                 <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">Agregar al carrito</button>
                 </div>
                 `
-})
-document.getElementById('sect_mv_cont').innerHTML = acumulador;
+        })
+        document.getElementById('sect_mv_cont').innerHTML = acumulador;
+    })
 
 //2.- Productos Nuevos
 //funcion que crea un nuevo array con los "productos nuevos" del (stockProductos.json)
-creacionProductosNuevos()
+fetch('../stockProductos.json')
+    .then((response) => response.json())
+    .then(informacion => {
+        const productosNuevos = informacion.filter(producto => producto.nombre === 'Asus RTX 3080Ti' ||
+            producto.nombre === 'Palit RTX 3070Ti' ||
+            producto.nombre === 'Asus RTX 3070Ti' ||
+            producto.nombre === 'Asus RTX 3090Ti');
 
-let acumulador2 = ``;
-productosNuevos.forEach((producto) => {
 
-    const idBoton = `add-cart${producto.id}`
-    acumulador2 +=
-        `<div class="sect_np_01">
+        let acumulador = ``;
+        productosNuevos.forEach((producto) => {
+
+            const idBoton = `add-cart${producto.id}`
+            acumulador +=
+                `<div class="sect_np_01">
                 <img class="producto-img" src=${producto.img} alt="">
                 <h4 class="producto-titulo">${producto.nombre}</h4>
                 <p class="producto-precio">$${producto.precio}</p>
                 <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">Agregar al carrito</button>
                 </div>`
-})
-document.getElementById('sect_np_cont').innerHTML = acumulador2;
-
+        })
+        document.getElementById('sect_np_cont').innerHTML = acumulador;
+    })
 //--------------------------------------------------------------------------------------------//
 
 //VENTANA POPUP (JQuery)
@@ -59,58 +75,77 @@ $(document).ready(function () {
 
 //AGREGAR (ProductosTop) AL CARRITO
 //funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
-creacionProductosTop()
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            //Creacion de nuevo array con los productos top
+            const productosTop = informacion.filter(producto => producto.nombre === 'Palit RTX 3060' ||
+                producto.nombre === 'Asus RTX 3050' ||
+                producto.nombre === 'Asus RTX 3060' ||
+                producto.nombre === 'MSI RTX 3080');
 
-productosTop.forEach((producto) => {
-    const idBoton = `add-cart${producto.id}`
-    document.getElementById(idBoton).onclick = () => {
-        carrito.push(producto)
-        console.log(carrito)
-        let nombrePr = producto.nombre
 
-        //Actualizar carrito compra
-        actualizar();
+            productosTop.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                document.getElementById(idBoton).onclick = () => {
+                    carrito.push(producto)
+                    console.log(carrito)
+                    let nombrePr = producto.nombre
 
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: nombrePr,
-            html:
-                'ha sido agregado al <b>carrito</b>',
-            showConfirmButton: false,
-            timer: 1800
+                    //Actualizar carrito compra
+                    actualizar();
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: nombrePr,
+                        html:
+                            'ha sido agregado al <b>carrito</b>',
+                        showConfirmButton: false,
+                        timer: 1800
+                    })
+
+                }
+
+            })
         })
-
-    }
-})
-
 
 //--------------------------------------------------------------------------------------------//
 
 //AGREGAR (ProductosNuevos) AL CARRITO
 //funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
-creacionProductosNuevos()
-productosNuevos.forEach((producto) => {
-    const idBoton = `add-cart${producto.id}`
-    document.getElementById(idBoton).onclick = () => {
-        carrito.push(producto)
-        console.log(carrito)
-        let nombrePr = producto.nombre
+fetch('../stockProductos.json')
+    .then((response) => response.json())
+    .then(informacion => {
+        const productosNuevos = informacion.filter(producto => producto.nombre === 'Asus RTX 3080Ti' ||
+            producto.nombre === 'Palit RTX 3070Ti' ||
+            producto.nombre === 'Asus RTX 3070Ti' ||
+            producto.nombre === 'Asus RTX 3090Ti');
 
-        //Actualizar carrito compra
-        actualizar()
+        productosNuevos.forEach((producto) => {
+            const idBoton = `add-cart${producto.id}`
+            document.getElementById(idBoton).onclick = () => {
+                carrito.push(producto)
+                console.log(carrito)
+                let nombrePr = producto.nombre
 
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: nombrePr,
-            html:
-                'ha sido agregado al <b>carrito</b>',
-            showConfirmButton: false,
-            timer: 1800
+                //Actualizar carrito compra
+                actualizar()
+
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: nombrePr,
+                    html:
+                        'ha sido agregado al <b>carrito</b>',
+                    showConfirmButton: false,
+                    timer: 1800
+                })
+
+            }
+
         })
-    }
-})
+    })
 
 
 //--------------------------------------------------------------------------------------------//
@@ -213,26 +248,3 @@ function borrarTodoDelCarrito() {
 
 //--------------------------------------------------------------------------------------------//
 
-//FUNCION CREAR ARRAY PRODUCTOS TOP
-function creacionProductosTop() {
-    fetch('../stockProductos.json')
-        .then((response) => response.json())
-        .then(informacion => {
-            //Creacion de nuevo array con los productos top
-            const productosTop = informacion.filter(producto => producto.nombre === 'Palit RTX 3060' ||
-                producto.nombre === 'Asus RTX 3050' ||
-                producto.nombre === 'Asus RTX 3060' ||
-                producto.nombre === 'MSI RTX 3080');
-        })
-}
-
-function creacionProductosNuevos() {
-    fetch('../stockProductos.json')
-        .then((response) => response.json())
-        .then(informacion => {
-            const productosNuevos = informacion.filter(producto => producto.nombre === 'Asus RTX 3080Ti' ||
-                producto.nombre === 'Palit RTX 3070Ti' ||
-                producto.nombre === 'Asus RTX 3070Ti' ||
-                producto.nombre === 'Asus RTX 3090Ti');
-        })
-}

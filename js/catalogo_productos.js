@@ -123,6 +123,90 @@ function generarCardsCPopUp() {
 
 //--------------------------------------------------------------------------------------------//
 
+const selectionPrecio = document.getElementById('selectPrec');
+function selectPrec() {
+
+    //Opcion todo
+    if (selectionPrecio.value === 'value1_1') {
+        console.log('tod')
+        renderizarTodosProductos()
+    }
+
+    //Opcion menor a mayor
+    if (selectionPrecio.value === 'value1_2') {
+        console.log('Menor a mayor')
+        
+    }
+
+    //Opcion mayor a menor
+    if (selectionPrecio.value === 'value1_3') {
+        console.log('Mayor a menor')
+
+    }
+
+}
+
+//--------------------------------------------------------------------------------------------//
+
+const selectionNom = document.getElementById('selectNomb');
+function selectNom() {
+
+    //Opcion Todas
+    if (selectionNom.value === 'value2_1') {
+        console.log('Todas')
+        renderizarTodosProductos()
+    }
+
+    //Opcion 1660
+    if (selectionNom.value === 'value2_2') {
+        console.log('opcion 1660')
+        filtrarPorNombre("GTX 1660")
+    }
+
+    //Opcion 2060
+    if (selectionNom.value === 'value2_3') {
+        console.log('opcion 2060')
+        filtrarPorNombre("RTX 2060")
+    }
+
+    //Opcion 3050
+    if (selectionNom.value === 'value2_4') {
+        console.log('opcion 3050')
+        filtrarPorNombre("RTX 3050")
+
+    }
+
+    //Opcion 3060
+    if (selectionNom.value === 'value2_5') {
+        console.log('opcion 3060')
+        filtrarPorNombre("RTX 3060")
+
+    }
+
+    //Opcion 3070
+    if (selectionNom.value === 'value2_6') {
+        console.log('opcion 3070')
+        filtrarPorNombre("RTX 3070")
+
+    }
+
+    //Opcion 3080
+    if (selectionNom.value === 'value2_7') {
+        console.log('opcion 3080')
+        filtrarPorNombre("RTX 3080")
+
+    }
+
+    //Opcion 3090
+    if (selectionNom.value === 'value2_8') {
+        console.log('opcion 3090')
+        filtrarPorNombre("RTX 3090")
+
+    }
+}
+
+//--------------------------------------------------------------------------------------------//
+
 //***** FUNCIONES *****/
 
 //FUNCION ACTUALIZAR PRECIOS Y CANTIDAD DE PRODUCTOS DEL CARRITO
@@ -168,3 +252,75 @@ function borrarTodoDelCarrito() {
 
 //--------------------------------------------------------------------------------------------//
 
+//FUNCION ORDENAR PRODUCTOS PRECIO
+function ordMenorAMayor(a, b) {
+    return a - b;
+}
+
+function ordMayorAMenor(a, b) {
+    return a - b;
+}
+
+//FUNCION ORDENAR PRODUCTOS PRECIO
+function filtrarPorNombre(linea) {
+
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            let acumulador = ``;
+            document.getElementById("cont-prod-carrito").innerHTML = "";
+            informacion.forEach((producto) => {
+                if (producto.linea === linea) {
+                    const idBoton = `add-cart${producto.id}`
+                    acumulador +=
+                        `
+        <div class="sect_mv_01">
+            <img class="producto-img" src=${producto.img} alt="">
+            <h4 class="producto-titulo">${producto.nombre}</h4>
+            <p class="producto-precio">$${producto.precio}</p>
+            <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
+                <div class="ico_btn">
+                    <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
+                </div>
+                <span>Agregar al carrito</span>
+            </button>
+        </div>
+        `
+
+                    document.getElementById('cont-productos-main').innerHTML = acumulador;
+
+                }
+            })
+
+        })
+}
+
+
+function renderizarTodosProductos() {
+
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            let acumulador = ``;
+            informacion.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                acumulador +=
+                    `
+            <div class="sect_mv_01">
+                <img class="producto-img" src=${producto.img} alt="">
+                <h4 class="producto-titulo">${producto.nombre}</h4>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
+                    <div class="ico_btn">
+                        <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
+                    </div>
+                    <span>Agregar al carrito</span>
+                </button>
+            </div>
+            `
+            })
+
+            document.getElementById('cont-productos-main').innerHTML = acumulador;
+
+        })
+}

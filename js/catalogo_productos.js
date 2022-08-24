@@ -7,31 +7,7 @@ actualizar();
 //Todos los productos
 const contProductos = document.querySelector('.cont-productos-main');
 
-fetch('../stockProductos.json')
-    .then((response) => response.json())
-    .then(informacion => {
-        let acumulador = ``;
-        informacion.forEach((producto) => {
-            const idBoton = `add-cart${producto.id}`
-            acumulador +=
-                `
-            <div class="sect_mv_01">
-                <img class="producto-img" src=${producto.img} alt="">
-                <h4 class="producto-titulo">${producto.nombre}</h4>
-                <p class="producto-precio">$${producto.precio}</p>
-                <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
-                    <div class="ico_btn">
-                        <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
-                    </div>
-                    <span>Agregar al carrito</span>
-                </button>
-            </div>
-            `
-        })
-
-        document.getElementById('cont-productos-main').innerHTML = acumulador;
-
-    })
+renderizarTodosProductos()
 
 //--------------------------------------------------------------------------------------------//
 
@@ -128,20 +104,20 @@ function selectPrec() {
 
     //Opcion todo
     if (selectionPrecio.value === 'value1_1') {
-        console.log('tod')
+        console.log('todos')
         renderizarTodosProductos()
     }
 
     //Opcion menor a mayor
     if (selectionPrecio.value === 'value1_2') {
         console.log('Menor a mayor')
-        
+        ordMenorAMayor()
     }
 
     //Opcion mayor a menor
     if (selectionPrecio.value === 'value1_3') {
         console.log('Mayor a menor')
-
+        ordMayorAMenor()
     }
 
 }
@@ -253,12 +229,82 @@ function borrarTodoDelCarrito() {
 //--------------------------------------------------------------------------------------------//
 
 //FUNCION ORDENAR PRODUCTOS PRECIO
-function ordMenorAMayor(a, b) {
-    return a - b;
+function ordMenorAMayor() {
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            let acumulador = ``;
+            document.getElementById("cont-prod-carrito").innerHTML = "";
+            informacion.sort((a, b) => {
+                if (a.precio < b.precio) {
+                    return -1;
+                }
+                if (a.precio > b.precio) {
+                    return 1;
+                }
+                else {
+                    return 0;
+                }
+            })
+            informacion.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                acumulador +=
+                    `
+                <div class="sect_mv_01">
+                    <img class="producto-img" src=${producto.img} alt="">
+                    <h4 class="producto-titulo">${producto.nombre}</h4>
+                    <p class="producto-precio">$${producto.precio}</p>
+                    <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
+                        <div class="ico_btn">
+                            <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
+                        </div>
+                        <span>Agregar al carrito</span>
+                    </button>
+                </div>
+                `
+            })
+
+            document.getElementById('cont-productos-main').innerHTML = acumulador;
+        })
 }
 
-function ordMayorAMenor(a, b) {
-    return a - b;
+function ordMayorAMenor() {
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            let acumulador = ``;
+            document.getElementById("cont-prod-carrito").innerHTML = "";
+            informacion.sort((a, b) => {
+                if (a.precio < b.precio) {
+                    return 1;
+                }
+                if (a.precio > b.precio) {
+                    return -1;
+                }
+                else {
+                    return 0;
+                }
+            })
+            informacion.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                acumulador +=
+                    `
+                <div class="sect_mv_01">
+                    <img class="producto-img" src=${producto.img} alt="">
+                    <h4 class="producto-titulo">${producto.nombre}</h4>
+                    <p class="producto-precio">$${producto.precio}</p>
+                    <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
+                        <div class="ico_btn">
+                            <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
+                        </div>
+                        <span>Agregar al carrito</span>
+                    </button>
+                </div>
+                `
+            })
+
+            document.getElementById('cont-productos-main').innerHTML = acumulador;
+        })
 }
 
 //FUNCION ORDENAR PRODUCTOS PRECIO

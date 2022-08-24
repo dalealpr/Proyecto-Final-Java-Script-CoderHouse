@@ -663,6 +663,96 @@ main {
       .cont-nosotros main .text-qS-cont .img_tienda {
         width: 300px; }
 
+.cont-contacto main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .cont-contacto main .cont-main_contacto {
+    width: 75%;
+    padding-left: 50px;
+    padding-top: 70px;
+    padding-bottom: 70px; }
+    .cont-contacto main .cont-main_contacto h2 {
+      font-size: 32px;
+      margin-bottom: 15px; }
+  .cont-contacto main .cont-form-contacto {
+    display: flex;
+    flex-direction: column;
+    background-color: #e3e3e3;
+    gap: 10px;
+    margin-left: 50px;
+    margin-right: 100px;
+    margin-top: 40px;
+    padding-top: 40px;
+    padding-left: 70px;
+    padding-bottom: 40px; }
+    .cont-contacto main .cont-form-contacto .inp {
+      width: 25%;
+      height: 30px;
+      font-size: 14px;
+      border: solid 1px darkgray;
+      margin-bottom: 17px;
+      padding-left: 10px;
+      font-weight: 300; }
+    .cont-contacto main .cont-form-contacto .btn {
+      width: 120px;
+      margin-top: 10px; }
+    .cont-contacto main .cont-form-contacto #message {
+      width: 40%;
+      height: 200px;
+      resize: none; }
+
+.main_cont-micuenta {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(../assets/images/inSesion/fondo_ic.jpg); }
+  .main_cont-micuenta form {
+    width: 380px;
+    height: 500px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .main_cont-micuenta form h3 {
+      width: 100%;
+      text-align: center;
+      margin: 25px;
+      color: #797979;
+      font-weight: 500;
+      font-size: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #c2c2c2; }
+    .main_cont-micuenta form a {
+      font-weight: 400;
+      color: #797979;
+      margin: 20px 0; }
+    .main_cont-micuenta form .usuario {
+      width: 75%;
+      color: #797979;
+      border-bottom: 2px solid #797979;
+      font-size: 14px;
+      margin: 25px 0; }
+      .main_cont-micuenta form .usuario input {
+        width: 100%;
+        top: 50%;
+        height: 40px;
+        font-size: 14px;
+        border: none;
+        background: none;
+        outline: none; }
+    .main_cont-micuenta form .boton-ingresar {
+      background-color: #47008d;
+      color: #ffffff;
+      text-align: center;
+      font-size: 16px;
+      width: 280px;
+      padding: 12px;
+      border-radius: 25px; }
+
 footer {
   width: 100%;
   height: 300px;

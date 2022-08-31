@@ -1324,7 +1324,7 @@ footer {
   .navbar {
     display: flex;
     justify-content: space-between;
-    height: 50px;
+    height: 60px;
     padding: 0px;
     background-color: #131313; }
     .navbar .mobile-nav {
@@ -1355,10 +1355,10 @@ footer {
         width: 28px; }
     .navbar .nav_hamburguesa {
       display: none;
-      margin-top: 50px;
+      margin-top: 60px;
       color: #fff;
       position: absolute;
-      width: 50%;
+      width: 70%;
       height: 790px;
       top: 0;
       right: 1; }
@@ -1370,7 +1370,7 @@ footer {
         height: max-content;
         background: #520079; }
         .navbar .nav_hamburguesa ul li {
-          height: 60px;
+          height: 55px;
           width: 98%;
           margin-bottom: 5px;
           background-color: #181818;
@@ -1541,7 +1541,7 @@ footer {
         .main_index .section_nuevos_productos .sect_np_cont .sect_np_01 p {
           margin-bottom: 19px; }
   footer {
-    height: 220px; }
+    height: 160px; }
     footer .footer_cont .footer_cont-1 {
       font-size: 14px; }
       footer .footer_cont .footer_cont-1 .footer_cont-sn {

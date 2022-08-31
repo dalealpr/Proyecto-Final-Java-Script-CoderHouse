@@ -860,7 +860,7 @@
     .navbar {
         display: flex;
         justify-content: space-between;
-        height: 50px;
+        height: 60px;
         padding: 0px;
         background-color: #131313;
 
@@ -911,10 +911,10 @@
 
         .nav_hamburguesa {
             display: none;
-            margin-top: 50px;
+            margin-top: 60px;
             color: #fff;
             position: absolute;
-            width: 50%;
+            width: 70%;
             height: 790px;
             top: 0;
             right: 1;
@@ -928,7 +928,7 @@
                 background: #520079;
 
                 li {
-                    height: 60px;
+                    height: 55px;
                     width: 98%;
                     margin-bottom: 5px;
                     background-color: #181818;
@@ -1233,7 +1233,7 @@
 
     //---- FOOTER ----//
     footer {
-        height: 220px;
+        height: 160px;
 
         .footer_cont {
             .footer_cont-1 {

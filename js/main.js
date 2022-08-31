@@ -247,6 +247,35 @@ function borrarTodoDelCarrito() {
     })
 }
 
+function renderizarTodosProductos() {
+
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            let acumulador = ``;
+            informacion.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                acumulador +=
+                    `
+            <div class="sect_mv_01">
+                <img class="producto-img" src=${producto.img} alt="">
+                <h4 class="producto-titulo">${producto.nombre}</h4>
+                <p class="producto-precio">$${producto.precio}</p>
+                <button type="button" style="cursor:pointer;" class="btn" id="${idBoton}" data-id="${producto.id}">
+                    <div class="ico_btn">
+                        <img class="img_shop_ico" src="../assets/images/ico/carrito-03.png" alt="">
+                    </div>
+                    <span>Agregar al carrito</span>
+                </button>
+            </div>
+            `
+            })
+
+            document.getElementById('cont-productos-main').innerHTML = acumulador;
+
+        })
+}
+
 //--------------------------------------------------------------------------------------------//
 
 //FUNCION HAMBURGUESA

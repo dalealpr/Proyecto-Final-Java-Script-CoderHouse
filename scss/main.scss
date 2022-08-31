@@ -11,6 +11,12 @@
     color: #000000;
     font-size: 15px;
 }
+//**** NAV ****//
+@import "componentes/nav";
+@import "componentes/nav2";
+
+//**** HEADER ****//
+@import "componentes/header";
 
 .nav_and_header {
     background: radial-gradient(#ffffff,#c5c5c5);
@@ -20,15 +26,8 @@
     width: 100%;
     height: 750px;
 
-
 }
 
-//**** NAV ****//
-@import "componentes/nav";
-@import "componentes/nav2";
-
-//**** HEADER ****//
-@import "componentes/header";
 
 //----------------------------------------------------//
 
@@ -286,7 +285,7 @@
 //----------------------------------------------------//
 
 //**** FOOTER ****//
-@import "componentes/mediaqueries";
+@import "componentes/footer";
 
 //**** MEDIA QUERIES ****//
-@import "componentes/footer";
+@import "componentes/mediaqueries";

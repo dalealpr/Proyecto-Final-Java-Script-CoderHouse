@@ -203,6 +203,7 @@ function actualizar() {
     localStorage.setItem('carrito', JSON.stringify(carrito))
     const totalNuevos = carrito.reduce((acc, item) => acc + item.precio, 0)
     document.getElementById('numCar').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
+    document.getElementById('numCar2').innerHTML = carrito.length + " - ($" + totalNuevos + ")";
     //Total dentro del popUp
     document.getElementById('tpp-precio').innerHTML = "$" + totalNuevos;
 }
@@ -247,4 +248,23 @@ function borrarTodoDelCarrito() {
 }
 
 //--------------------------------------------------------------------------------------------//
+
+//FUNCION HAMBURGUESA
+const icoOpen = document.getElementById('ic-han');
+const icoOClose = document.getElementById('ic-han2');
+const menuHamb = document.getElementById('menu-ham');
+
+
+icoOpen.addEventListener('click', e =>{
+    menuHamb.style.display="block"
+    icoOClose.style.display="block"
+    icoOpen.style.display="none"
+})
+
+icoOClose.addEventListener('click', e =>{
+    menuHamb.style.display="none"
+    icoOClose.style.display="none"
+    icoOpen.style.display="block"
+})
+
 

@@ -102,3 +102,23 @@ function borrarTodoDelCarrito(){
     console.log(carrito)
     actualizar()
 }
+
+//--------------------------------------------------------------------------------------------//
+
+//FUNCION HAMBURGUESA
+const icoOpen = document.getElementById('ic-han');
+const icoOClose = document.getElementById('ic-han2');
+const menuHamb = document.getElementById('menu-ham2');
+
+
+icoOpen.addEventListener('click', e =>{
+    menuHamb.style.display="block"
+    icoOClose.style.display="block"
+    icoOpen.style.display="none"
+})
+
+icoOClose.addEventListener('click', e =>{
+    menuHamb.style.display="none"
+    icoOClose.style.display="none"
+    icoOpen.style.display="block"
+})

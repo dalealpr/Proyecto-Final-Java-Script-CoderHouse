@@ -52,9 +52,26 @@
             <!--** NAVIGATION BAR **-->
             <div class="navbar">
 
+                <!-- Menu Hamburguesa -->
+                <div class="mobile-nav">
+                    <i class="fas fa-bars" id="ic-han"><img src="assets/images/nav/menu_h3.png" alt=""></i>
+                    <i class="fas fa-bars" id="ic-han2"><img src="assets/images/nav/menu_h3.png" alt=""></i>
+                </div>
+                 <!-- Nav Hamburguesa -->
+                 <nav class="nav_hamburguesa" id="menu-ham">
+                    <ul>
+                        <li><a href="pages/catalogo_productos.html">Productos</a></li>
+                        <li><a href="pages/nosotros.html">Nosotros</a></li>
+                        <li><a href="pages/contacto.html">Contacto</a></li>
+                        <li><a href="pages/mi_cuenta.html">Usuario</a></li>
+
+                    </ul>
+                </nav>
+
+
+
                 <a class="link_img_logo" href="index.html"><img class="img_logo" src="assets/images/logo/logo_ss.png"
                         alt=""></a>
-
 
                 <nav>
                     <ul>
@@ -67,8 +84,14 @@
                 </nav>
 
                 <!-- Boton Carrito -->
-                <div class="carrito_cont">
+                <div class="carrito_cont2x">
                     <span id="numCar" class="numCar-total">0</span>
+                    <a class="img_shop-cont2" href="#" onclick="generarCardsCPopUp()"><img class="img_shop2"
+                            src="assets/images/ico/carrito-01.png" alt=""></a>
+                </div>
+
+                <div class="carrito_cont">
+                    <span id="numCar2" class="numCar-total">0</span>
                     <a class="img_shop-cont2" href="#" onclick="generarCardsCPopUp()"><img class="img_shop2"
                             src="assets/images/ico/carrito-02.png" alt=""></a>
                 </div>
@@ -108,7 +131,7 @@
                     <div class="header-text_cont">
                         <h1>Las mejores Tarjetas Graficas del mercado</h1>
 
-                        <p>Tenemos lo ultimo en Tarjetas Graficas, todas tus marcas favoritas al mejor precio</p>
+                        <p>Tenemos lo ultimo en Tarjetas Graficas, todas tus marcas favoritas al mejor precio.</p>
                         <a href="pages/catalogo_productos.html" class="btn-conoce">Conoce más</a>
                     </div>
                 </div>
@@ -228,8 +251,6 @@
 
 
     <!-- Link a Java Script -->
-
-    <script src="js/stockMain.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/main.js"></script>
 

@@ -805,7 +805,7 @@ header {
   align-items: center;
   background-image: url(../assets/images/inSesion/fondo_ic.jpg); }
   .main_cont-micuenta form {
-    width: 380px;
+    width: 320px;
     height: 500px;
     background-color: #ffffff;
     border-radius: 12px;
@@ -1264,6 +1264,8 @@ footer {
         display: block; }
       .nav2 .mobile-nav #ic-han2 {
         display: none; }
+        .nav2 .mobile-nav #ic-han2 #ic-han2x {
+          width: 30px; }
     .nav2 .link_img_logo {
       margin-left: 10%; }
       .nav2 .link_img_logo .img_logo {
@@ -1457,8 +1459,22 @@ footer {
         width: 130px; }
       .main_index .section_nuevos_productos .sect_np_cont .sect_np_01 p {
         margin-bottom: 19px; }
-  .main_index h2 {
-    margin: 0px; } }
+  .cont-nosotros main {
+    display: flex;
+    justify-content: center; }
+    .cont-nosotros main .quienesSomos_img {
+      height: 350px; }
+      .cont-nosotros main .quienesSomos_img h2 {
+        font-size: 40px; }
+    .cont-nosotros main .text-qS-cont {
+      padding: 0px 30px;
+      height: 350px;
+      gap: 50px; }
+      .cont-nosotros main .text-qS-cont p {
+        width: 30%;
+        font-size: 14px; }
+      .cont-nosotros main .text-qS-cont .img_tienda {
+        width: 200px; } }
 
 @media (max-width: 550px) {
   h2 {
@@ -1598,6 +1614,8 @@ footer {
         display: block; }
       .nav2 .mobile-nav #ic-han2 {
         display: none; }
+        .nav2 .mobile-nav #ic-han2 #ic-han2x {
+          width: 25px; }
     .nav2 .link_img_logo {
       width: 38%;
       display: flex;
@@ -1623,6 +1641,36 @@ footer {
       .nav2 .carrito_cont .img_shop2 {
         width: 28px;
         margin-right: 0; }
+    .nav2 .nav_hamburguesa {
+      display: none;
+      margin-top: 60px;
+      color: #fff;
+      position: absolute;
+      width: 70%;
+      height: 790px;
+      top: 0;
+      right: 1; }
+      .nav2 .nav_hamburguesa ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: max-content;
+        background: #520079; }
+        .nav2 .nav_hamburguesa ul li {
+          height: 55px;
+          width: 98%;
+          margin-bottom: 5px;
+          background-color: #181818;
+          color: #fff;
+          display: flex; }
+          .nav2 .nav_hamburguesa ul li a {
+            width: 100%;
+            color: #fff;
+            display: flex;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center; }
     .nav2 .carrito-overlay .popup {
       width: 100%; }
       .nav2 .carrito-overlay .popup .close-cont {
@@ -1819,6 +1867,62 @@ footer {
         .cont-productos main .cont-productos-main .sect_mv_01 p {
           font-size: 15px;
           margin-bottom: 20px; }
+  .cont-nosotros main {
+    display: flex;
+    justify-content: center; }
+    .cont-nosotros main .quienesSomos_img {
+      height: 280px; }
+      .cont-nosotros main .quienesSomos_img h2 {
+        font-size: 40px; }
+    .cont-nosotros main .text-qS-cont {
+      padding: 0px 30px;
+      height: 350px;
+      gap: 50px; }
+      .cont-nosotros main .text-qS-cont p {
+        width: 30%;
+        font-size: 10px; }
+      .cont-nosotros main .text-qS-cont .img_tienda {
+        width: 180px; }
+  .cont-contacto main {
+    font-size: 13px;
+    padding: 0px 0px; }
+    .cont-contacto main .cont-main_contacto {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      padding: 20px 50px;
+      font-size: 12px; }
+      .cont-contacto main .cont-main_contacto h2 {
+        font-size: 20px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        padding: 0px 25px; }
+      .cont-contacto main .cont-main_contacto p {
+        padding: 0px 25px; }
+    .cont-contacto main .cont-form-contacto {
+      width: 100%;
+      padding: 30px 30px;
+      margin: 30px  0px;
+      gap: 10px; }
+      .cont-contacto main .cont-form-contacto .inp {
+        width: 45%;
+        height: 25px;
+        font-size: 14px;
+        border: solid 1px darkgray;
+        margin-bottom: 17px;
+        padding-left: 10px;
+        font-weight: 300; }
+      .cont-contacto main .cont-form-contacto .btn {
+        margin-top: 20px;
+        background: #3e015a;
+        color: #fff;
+        font-size: 13px;
+        padding: 8px 26px;
+        border-radius: 30px; }
+      .cont-contacto main .cont-form-contacto #message {
+        width: 80%;
+        height: 200px;
+        resize: none; }
   footer {
     height: 160px; }
     footer .footer_cont .footer_cont-1 {

@@ -740,6 +740,10 @@
 
             #ic-han2 {
                 display: none;
+
+                #ic-han2x {
+                    width: 30px;
+                }
             }
         }
 
@@ -1092,9 +1096,36 @@
                 }
             }
         }
+    }
 
-        h2 {
-            margin: 0px;
+    //---- NOSOTROS ----//
+    .cont-nosotros {
+        main {
+            display: flex;
+            justify-content: center;
+
+            .quienesSomos_img {
+                height: 350px;
+
+                h2 {
+                    font-size: 40px;
+                }
+            }
+
+            .text-qS-cont {
+                padding: 0px 30px;
+                height: 350px;
+                gap: 50px;
+
+                p {
+                    width: 30%;
+                    font-size: 14px;
+                }
+
+                .img_tienda {
+                    width: 200px;
+                }
+            }
         }
     }
 }
@@ -1331,6 +1362,10 @@
 
             #ic-han2 {
                 display: none;
+
+                #ic-han2x {
+                    width: 25px;
+                }
             }
         }
 
@@ -1371,6 +1406,45 @@
             .img_shop2 {
                 width: 28px;
                 margin-right: 0;
+            }
+        }
+
+        .nav_hamburguesa {
+            display: none;
+            margin-top: 60px;
+            color: #fff;
+            position: absolute;
+            width: 70%;
+            height: 790px;
+            top: 0;
+            right: 1;
+
+            ul {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: max-content;
+                background: #520079;
+
+                li {
+                    height: 55px;
+                    width: 98%;
+                    margin-bottom: 5px;
+                    background-color: #181818;
+                    color: #fff;
+                    display: flex;
+
+
+                    a {
+                        width: 100%;
+                        color: #fff;
+                        display: flex;
+                        font-size: 14px;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
             }
         }
 
@@ -1721,6 +1795,95 @@
         }
     }
 
+    //---- NOSOTROS ----//
+    .cont-nosotros {
+        main {
+            display: flex;
+            justify-content: center;
+
+            .quienesSomos_img {
+                height: 280px;
+
+                h2 {
+                    font-size: 40px;
+                }
+            }
+
+            .text-qS-cont {
+                padding: 0px 30px;
+                height: 350px;
+                gap: 50px;
+
+                p {
+                    width: 30%;
+                    font-size: 10px;
+                }
+
+                .img_tienda {
+                    width: 180px;
+                }
+            }
+        }
+    }
+
+
+    //---- CONTACTO ----//
+    .cont-contacto {
+        main {
+            font-size: 13px;
+            padding: 0px 0px;
+
+            .cont-main_contacto {
+                width: 100%;
+                padding-top: 50px;
+                padding-bottom: 50px;
+                padding: 20px 50px;
+                font-size: 12px;
+
+                h2 {
+                    font-size: 20px;
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                    padding:0px 25px;
+                }
+                p{
+                    padding: 0px 25px;
+                }
+            }
+
+            .cont-form-contacto {
+                width: 100%;
+                padding: 30px 30px;
+                margin:30px  0px;
+                gap: 10px;
+
+                .inp {
+                    width: 45%;
+                    height: 25px;
+                    font-size: 14px;
+                    border: solid 1px rgb(169, 169, 169);
+                    margin-bottom: 17px;
+                    padding-left: 10px;
+                    font-weight: 300;
+                }
+
+                .btn {
+                    margin-top: 20px;
+                    background: #3e015a;
+                    color: #fff;
+                    font-size: 13px;
+                    padding: 8px 26px;
+                    border-radius: 30px;
+                }
+
+                #message {
+                    width: 80%;
+                    height: 200px;
+                    resize: none;
+                }
+            }
+        }
+    }
     //---- FOOTER ----//
     footer {
         height: 160px;

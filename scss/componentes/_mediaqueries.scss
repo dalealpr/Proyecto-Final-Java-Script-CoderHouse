@@ -670,7 +670,7 @@
             cursor: pointer;
 
             i img {
-                width: 45px;
+                width: 38px;
                 margin-left: 40px;
             }
 
@@ -682,7 +682,7 @@
 
         .link_img_logo {
             .img_logo {
-                width: 130px;
+                width: 110px;
                 margin: 0;
             }
         }
@@ -696,6 +696,249 @@
 
             ul {
                 display: none;
+            }
+        }
+
+        .carrito_cont2x {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            margin-right: 48px;
+
+            .numCar-total {
+                color: #fff;
+                font-size: 9px;
+                background-color: #3f3f3f;
+                padding: 7px;
+                border-radius: 100%;
+            }
+
+            .img_shop2 {
+                width: 38px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    //---- NAV 2 ---//
+    .nav2 {
+        height: 20px;
+        background-color: #131313;
+
+        .mobile-nav {
+            display: block;
+            cursor: pointer;
+
+            i img {
+                width: 38px;
+                margin-left: 40px;
+            }
+
+            #ic-han {
+                display: block;
+            }
+
+            #ic-han2 {
+                display: none;
+            }
+        }
+
+        .link_img_logo {
+            margin-left: 10%;
+
+            .img_logo {
+                width: 110px;
+                margin: 0;
+            }
+        }
+
+        nav {
+            ul {
+                display: none;
+            }
+        }
+
+        .carrito_cont {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            margin-right: 48px;
+
+            .numCar-total {
+                color: #fff;
+                font-size: 9px;
+                background-color: #3f3f3f;
+                padding: 7px;
+                border-radius: 100%;
+            }
+
+            .img_shop2 {
+                width: 38px;
+                margin-right: 0;
+            }
+        }
+
+        // Pop-Up
+        .carrito-overlay {
+            .popup {
+                width: 80%;
+
+                .close-cont {
+                    width: 100%;
+                    height: 5%;
+                }
+
+                .cont-pop-carrito {
+
+
+                    .titulo-p-carrito {
+                        margin-top: 40px;
+                        margin-left: 20px;
+                        font-size: 17px;
+                    }
+
+
+                    .pop-cont2 {
+                        display: flex;
+                        align-items: center;
+
+                        .producto-img {
+                            margin-left: 20px;
+                            width: 130px;
+                        }
+                    }
+
+                    .cont-popNum {
+                        margin: 0 35px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-weight: 300;
+                        gap: 20px;
+
+
+                        .cont-popCantidad {
+                            border: 1px solid #d1d1d19c;
+                            display: flex;
+                            align-items: center;
+                            border-radius: 5px;
+
+                            .menos {
+                                padding: 4px 8px;
+                                background-color: #cecece;
+                            }
+
+                            .popCantidad {
+                                padding: 4px 8px;
+                            }
+
+                            .mas {
+                                padding: 4px 8px;
+                                background-color: #cecece;
+                            }
+                        }
+                    }
+
+                    .precio-el-cont {
+                        .popPrecio {
+                            font-size: 22px;
+                        }
+                    }
+                }
+
+                .totales-cPopUp {
+                    height: 24%;
+
+                    .tCPopUp {
+                        .tCPopUp-total {
+                            font-size: 20px;
+                        }
+
+                        .tCPopUp-precio {
+                            font-size: 23px;
+                        }
+                    }
+
+                    .btnTotal {
+                        height: 70%;
+
+                        .btnTotal-01 {
+                            width: 35%;
+                            font-size: 14px;
+                        }
+
+                        .btnTotal-02 {
+                            width: 35%;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //---- PRODUCTOS ----//
+    .cont-productos {
+        justify-content: center;
+
+        main {
+            justify-content: center;
+
+
+            .btn {
+                font-size: 11px;
+                padding: 7px 16px;
+            }
+
+            .barra_filtros {
+                gap: 30px;
+                display: flex;
+                flex-direction: column;
+
+                .cont_bf {
+                    display: flex;
+
+                    .p_bf {
+                        margin-top: 0;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #5c5c5c;
+                        margin-right: 15px;
+                    }
+                }
+            }
+
+            .productos-titulo {
+                margin: 30px 0;
+                font-size: 22px;
+            }
+
+            .cont-productos-main {
+                width: 85%;
+                margin-top: 30px;
+                margin-bottom: 50px;
+                gap: 80px;
+                padding: 30px 40px;
+
+                display: flex;
+                flex-flow: wrap;
+                justify-content: center;
+                align-items: center;
+
+                .sect_mv_01 {
+                    img {
+                        width: 135px;
+                    }
+
+                    h4 {
+                        font-size: 14px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                        margin-bottom: 20px;
+                    }
+                }
             }
         }
     }
@@ -849,12 +1092,20 @@
                 }
             }
         }
+
+        h2 {
+            margin: 0px;
+        }
     }
 }
 
 //******************************************************************************//
 //----- 550px -----//
 @media (max-width:550px) {
+
+    h2 {
+        margin: 0px;
+    }
 
     //---- NAV ----//
     .navbar {
@@ -1060,6 +1311,180 @@
     }
 
 
+    //---- NAV 2 ---//
+    .nav2 {
+        height: 60px;
+        padding: 0px;
+
+        .mobile-nav {
+            display: block;
+            cursor: pointer;
+
+            i img {
+                width: 30px;
+                margin-left: 25px;
+            }
+
+            #ic-han {
+                display: block;
+            }
+
+            #ic-han2 {
+                display: none;
+            }
+        }
+
+        .link_img_logo {
+            width: 38%;
+            display: flex;
+            justify-content: flex-end;
+            margin-left: 0;
+            padding: 0;
+
+            .img_logo {
+                width: 90px;
+                margin: 0;
+            }
+        }
+
+        nav {
+            ul {
+                display: none;
+            }
+        }
+
+        //Carrito Ico
+        .carrito_cont {
+            display: flex;
+            align-items: center;
+            margin-left: 0px;
+            margin-right: 25px;
+
+            .numCar-total {
+                color: #fff;
+                font-size: 8px;
+                background-color: #3f3f3f;
+                padding: 7px;
+                border-radius: 100%;
+            }
+
+            .img_shop2 {
+                width: 28px;
+                margin-right: 0;
+            }
+        }
+
+        // Pop-Up
+        .carrito-overlay {
+            .popup {
+                width: 100%;
+
+                .close-cont {
+                    width: 100%;
+                    height: 5%;
+                }
+
+                .cont-pop-carrito {
+
+                    .titulo-p-carrito {
+                        margin-top: 40px;
+                        margin-left: 20px;
+                        font-size: 14px;
+                    }
+
+                    .pop-cont2 {
+                        display: flex;
+                        align-items: center;
+
+                        .producto-img {
+                            margin-left: 20px;
+                            width: 100px;
+                        }
+                    }
+
+
+                    .cont-popNum {
+                        margin: 0 30px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        font-weight: 300;
+                        gap: 20px;
+
+
+                        .cont-popCantidad {
+                            border: 1px solid #d1d1d19c;
+                            display: flex;
+                            align-items: center;
+                            border-radius: 5px;
+
+                            .menos {
+                                padding: 5px 10px;
+                                background-color: #cecece;
+                            }
+
+                            .popCantidad {
+                                padding: 5px 10px;
+                            }
+
+                            .mas {
+                                padding: 5px 10px;
+                                background-color: #cecece;
+                            }
+                        }
+                    }
+
+                    .precio-el-cont {
+                        margin-left: 5px;
+
+                        .popPrecio {
+                            font-size: 20px;
+                        }
+
+
+                        .eliminar {
+                            width: 20px;
+                            background: #3e015a;
+                            color: #fff;
+                            font-size: 12px;
+                            padding: 7px 28px;
+                            border-radius: 40px;
+                        }
+                    }
+                }
+
+                .totales-cPopUp {
+                    height: 24%;
+
+                    .tCPopUp {
+                        .tCPopUp-total {
+                            font-size: 20px;
+                        }
+
+                        .tCPopUp-precio {
+                            font-size: 23px;
+                        }
+                    }
+
+                    .btnTotal {
+                        height: 70%;
+
+                        .btnTotal-01 {
+                            width: 35%;
+                            font-size: 14px;
+                        }
+
+                        .btnTotal-02 {
+                            width: 35%;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
 
     //----- INDEX -----//
     //---- Header ----//
@@ -1230,6 +1655,71 @@
         }
     }
 
+    //---- PRODUCTOS ----//
+    .cont-productos {
+        justify-content: center;
+
+        main {
+            justify-content: center;
+
+
+            .btn {
+                font-size: 11px;
+                padding: 7px 16px;
+            }
+
+            .barra_filtros {
+                gap: 30px;
+                display: flex;
+                flex-direction: column;
+
+                .cont_bf {
+                    display: flex;
+
+                    .p_bf {
+                        margin-top: 0;
+                        font-size: 14px;
+                        font-weight: 500;
+                        color: #5c5c5c;
+                        margin-right: 15px;
+                    }
+                }
+            }
+
+            .productos-titulo {
+                margin: 30px 0;
+                font-size: 22px;
+            }
+
+            .cont-productos-main {
+                width: 85%;
+                margin-top: 30px;
+                margin-bottom: 50px;
+                gap: 80px;
+                padding: 30px 20px;
+
+                display: flex;
+                flex-flow: wrap;
+                justify-content: center;
+                align-items: center;
+
+                .sect_mv_01 {
+                    img {
+                        width: 135px;
+                    }
+
+                    h4 {
+                        font-size: 14px;
+                    }
+
+                    p {
+                        font-size: 15px;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
 
     //---- FOOTER ----//
     footer {

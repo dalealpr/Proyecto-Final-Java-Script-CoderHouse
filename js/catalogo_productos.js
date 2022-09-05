@@ -143,6 +143,7 @@ function selectNom() {
     if (selectionNom.value === 'value2_3') {
         console.log('opcion 2060')
         filtrarPorNombre("RTX 2060")
+
     }
 
     //Opcion 3050
@@ -179,6 +180,7 @@ function selectNom() {
         filtrarPorNombre("RTX 3090")
 
     }
+
 }
 
 //--------------------------------------------------------------------------------------------//
@@ -265,8 +267,11 @@ function ordMenorAMayor() {
             })
 
             document.getElementById('cont-productos-main').innerHTML = acumulador;
+            agregarProdAlCarrito()
         })
+
 }
+
 
 function ordMayorAMenor() {
     fetch('../stockProductos.json')
@@ -301,13 +306,16 @@ function ordMayorAMenor() {
                     </button>
                 </div>
                 `
+
+
             })
 
             document.getElementById('cont-productos-main').innerHTML = acumulador;
+            agregarProdAlCarrito()
         })
 }
 
-//FUNCION ORDENAR PRODUCTOS PRECIO
+//FUNCION ORDENAR PRODUCTOS MODELO
 function filtrarPorNombre(linea) {
 
     fetch('../stockProductos.json')
@@ -316,7 +324,9 @@ function filtrarPorNombre(linea) {
             let acumulador = ``;
             document.getElementById("cont-prod-carrito").innerHTML = "";
             informacion.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
                 if (producto.linea === linea) {
+
                     const idBoton = `add-cart${producto.id}`
                     acumulador +=
                         `
@@ -332,15 +342,25 @@ function filtrarPorNombre(linea) {
             </button>
         </div>
         `
-
-                    document.getElementById('cont-productos-main').innerHTML = acumulador;
+                    console.log('ID BOTON: ' + idBoton);
 
                 }
+
+
             })
 
+            document.getElementById('cont-productos-main').innerHTML = acumulador;
+            agregarProdAlCarrito()
+
+
+
+
         })
+
 }
 
+
+//--------------------------------------------------------------------------------------------//
 
 function renderizarTodosProductos() {
 
@@ -379,14 +399,50 @@ const icoOClose = document.getElementById('ic-han2');
 const menuHamb = document.getElementById('menu-ham2');
 
 
-icoOpen.addEventListener('click', e =>{
-    menuHamb.style.display="block"
-    icoOClose.style.display="block"
-    icoOpen.style.display="none"
+icoOpen.addEventListener('click', e => {
+    menuHamb.style.display = "block"
+    icoOClose.style.display = "block"
+    icoOpen.style.display = "none"
 })
 
-icoOClose.addEventListener('click', e =>{
-    menuHamb.style.display="none"
-    icoOClose.style.display="none"
-    icoOpen.style.display="block"
+icoOClose.addEventListener('click', e => {
+    menuHamb.style.display = "none"
+    icoOClose.style.display = "none"
+    icoOpen.style.display = "block"
 })
+
+//--------------------------------------------------------------------------------------------//
+function agregarProdAlCarrito() {
+
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            informacion.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                console.log('idboton'+idBoton)
+                document.getElementById(idBoton).onclick = () => {
+                    console.log(idBoton)    
+                    console.log(producto.nombre + ' CLICKEADO ')
+                    let nombrePr = producto.nombre
+                    carrito.push(producto)
+                    console.log(carrito)
+
+                    actualizar();
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: nombrePr,
+                        html:
+                            'ha sido agregado al <b>carrito</b>',
+                        showConfirmButton: false,
+                        timer: 1800
+                    })
+                }
+            })
+        })
+}
+
+//--------------------------------------------------------------------------------------------//
+
+

@@ -6,7 +6,7 @@ actualizar()
 //RENDERIZAR PORDUCTOS DEL ARRAY
 //1.- Array Productos Top
 //funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
-fetch('../stockProductos.json')
+fetch('./stockProductos.json')
     .then((response) => response.json())
     .then(informacion => {
         //Creacion de nuevo array con los productos top
@@ -34,7 +34,7 @@ fetch('../stockProductos.json')
 
 //2.- Productos Nuevos
 //funcion que crea un nuevo array con los "productos nuevos" del (stockProductos.json)
-fetch('../stockProductos.json')
+fetch('./stockProductos.json')
     .then((response) => response.json())
     .then(informacion => {
         const productosNuevos = informacion.filter(producto => producto.nombre === 'Asus RTX 3080Ti' ||

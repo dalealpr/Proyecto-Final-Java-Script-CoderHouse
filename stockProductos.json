@@ -28,6 +28,6 @@
     {"id":11025, "nombre":"MSI RTX 3080", "linea":"RTX 3080", "modelo":"RTX 3080", "marca":"MSI","img":"https://i.ibb.co/WV11gJf/msi-3080-01-ph.jpg", "precio":1400, "cantidad":2},
 
     {"id":11026, "nombre":"Asus RTX 3090Ti", "linea":"RTX 3090", "modelo":"RTX 3090Ti", "marca":"Asus","img":"https://i.ibb.co/jkD3cpj/asus-3090ti-01-ph.jpg", "precio":2580, "cantidad":1},
-    {"id":11027, "nombre":"MSI RTX 3090", "linea":"RTX 3090", "modelo":"RTX 3090", "marca":"Asus","img":"https://i.ibb.co/bRyh5v0/asus-3090-01-ph.jpg", "precio":200, "cantidad":0}
+    {"id":11027, "nombre":"MSI RTX 3090", "linea":"RTX 3090", "modelo":"RTX 3090", "marca":"Asus","img":"https://i.ibb.co/bRyh5v0/asus-3090-01-ph.jpg", "precio":2000, "cantidad":0}
 ]
 

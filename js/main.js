@@ -75,7 +75,7 @@ $(document).ready(function () {
 
 //AGREGAR (ProductosTop) AL CARRITO
 //funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
-    fetch('../stockProductos.json')
+    fetch('./stockProductos.json')
         .then((response) => response.json())
         .then(informacion => {
             //Creacion de nuevo array con los productos top
@@ -114,7 +114,7 @@ $(document).ready(function () {
 
 //AGREGAR (ProductosNuevos) AL CARRITO
 //funcion que crea un nuevo array con los "productos top" del (stockProductos.json)
-fetch('../stockProductos.json')
+fetch('./stockProductos.json')
     .then((response) => response.json())
     .then(informacion => {
         const productosNuevos = informacion.filter(producto => producto.nombre === 'Asus RTX 3080Ti' ||

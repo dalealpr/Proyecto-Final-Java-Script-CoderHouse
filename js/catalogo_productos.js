@@ -1,17 +1,18 @@
-
+//Llamo la funcion que guarda los productos del carrito en el navegador Web (Local Storaje)
 actualizar();
 
 //--------------------------------------------------------------------------------------------//
 
 //RENDERIZAR PORDUCTOS DEL ARRAY
-//Todos los productos
+//contenedor de Todos los productos
 const contProductos = document.querySelector('.cont-productos-main');
 
+//LLlamo la funcion que renderiza todos los productos de la tienda
 renderizarTodosProductos()
 
 //--------------------------------------------------------------------------------------------//
 
-//ABRIR POPUP (JQuery)
+//ABRIR POPUP CARRITO (JQuery)
 $(document).ready(function () {
     $(".img_shop-cont").on("click", function () {
         $(".carrito-overlay").fadeIn("fast");
@@ -25,7 +26,7 @@ $(document).ready(function () {
 
 //--------------------------------------------------------------------------------------------//
 
-//AGREGAR (Productos2) AL CARRITO
+//AGREGAR PRODUCTOS AL CARRITO
 fetch('../stockProductos.json')
     .then((response) => response.json())
     .then(informacion => {
@@ -47,14 +48,13 @@ fetch('../stockProductos.json')
                     showConfirmButton: false,
                     timer: 1800
                 })
-
             }
         })
     })
 
 //--------------------------------------------------------------------------------------------//
 
-//RENDERIZAR PRODUCTOS CLICK POPUP
+//RENDERIZAR PRODUCTOS CLICK POPUP CARRITO
 function generarCardsCPopUp() {
 
     //Storage
@@ -98,7 +98,7 @@ function generarCardsCPopUp() {
 }
 
 //--------------------------------------------------------------------------------------------//
-
+//SELECT ORDENAR POR PRECIO
 const selectionPrecio = document.getElementById('selectPrec');
 function selectPrec() {
 
@@ -123,7 +123,7 @@ function selectPrec() {
 }
 
 //--------------------------------------------------------------------------------------------//
-
+//SELECT FILTRAR POR MODELO
 const selectionNom = document.getElementById('selectNomb');
 function selectNom() {
 
@@ -136,55 +136,58 @@ function selectNom() {
     //Opcion 1660
     if (selectionNom.value === 'value2_2') {
         console.log('opcion 1660')
-        filtrarPorNombre("GTX 1660")
+        filtrarPorModelo("GTX 1660")
+        agregarProdAlCarritoFiltr("GTX 1660")
     }
 
     //Opcion 2060
     if (selectionNom.value === 'value2_3') {
         console.log('opcion 2060')
-        filtrarPorNombre("RTX 2060")
+        filtrarPorModelo("RTX 2060")
+        agregarProdAlCarritoFiltr("RTX 2060")
 
     }
 
     //Opcion 3050
     if (selectionNom.value === 'value2_4') {
         console.log('opcion 3050')
-        filtrarPorNombre("RTX 3050")
+        filtrarPorModelo("RTX 3050")
+        agregarProdAlCarritoFiltr("RTX 3050")
 
     }
 
     //Opcion 3060
     if (selectionNom.value === 'value2_5') {
         console.log('opcion 3060')
-        filtrarPorNombre("RTX 3060")
+        filtrarPorModelo("RTX 3060")
+        agregarProdAlCarritoFiltr("RTX 3060")
 
     }
 
     //Opcion 3070
     if (selectionNom.value === 'value2_6') {
         console.log('opcion 3070')
-        filtrarPorNombre("RTX 3070")
-
+        filtrarPorModelo("RTX 3070")
+        agregarProdAlCarritoFiltr("RTX 3070")
     }
 
     //Opcion 3080
     if (selectionNom.value === 'value2_7') {
         console.log('opcion 3080')
-        filtrarPorNombre("RTX 3080")
-
+        filtrarPorModelo("RTX 3080")
+        agregarProdAlCarritoFiltr("RTX 3080")
     }
 
     //Opcion 3090
     if (selectionNom.value === 'value2_8') {
         console.log('opcion 3090')
-        filtrarPorNombre("RTX 3090")
-
+        filtrarPorModelo("RTX 3090")
+        agregarProdAlCarritoFiltr("RTX 3090")
     }
 
 }
 
 //--------------------------------------------------------------------------------------------//
-
 //***** FUNCIONES *****/
 
 //FUNCION ACTUALIZAR PRECIOS Y CANTIDAD DE PRODUCTOS DEL CARRITO
@@ -231,6 +234,7 @@ function borrarTodoDelCarrito() {
 //--------------------------------------------------------------------------------------------//
 
 //FUNCION ORDENAR PRODUCTOS PRECIO
+//Funcion ordenar de menor a mayor
 function ordMenorAMayor() {
     fetch('../stockProductos.json')
         .then((response) => response.json())
@@ -267,12 +271,12 @@ function ordMenorAMayor() {
             })
 
             document.getElementById('cont-productos-main').innerHTML = acumulador;
-            agregarProdAlCarrito()
+            agregarProdAlCarritoOrd()
         })
 
 }
 
-
+//Funcion ordenar de mayor a menor
 function ordMayorAMenor() {
     fetch('../stockProductos.json')
         .then((response) => response.json())
@@ -306,30 +310,27 @@ function ordMayorAMenor() {
                     </button>
                 </div>
                 `
-
-
             })
-
             document.getElementById('cont-productos-main').innerHTML = acumulador;
-            agregarProdAlCarrito()
+            agregarProdAlCarritoOrd()
         })
 }
 
-//FUNCION ORDENAR PRODUCTOS MODELO
-function filtrarPorNombre(linea) {
+//FUNCION FILTRAR PRODUCTOS POR MODELO
+function filtrarPorModelo(line) {
 
     fetch('../stockProductos.json')
         .then((response) => response.json())
         .then(informacion => {
             let acumulador = ``;
             document.getElementById("cont-prod-carrito").innerHTML = "";
-            informacion.forEach((producto) => {
-                const idBoton = `add-cart${producto.id}`
-                if (producto.linea === linea) {
+            const productosFiltrados = informacion.filter((producto) => producto.linea === line)
+            productosFiltrados.forEach((producto) => {
+                // if (producto.linea === linea) {
 
-                    const idBoton = `add-cart${producto.id}`
-                    acumulador +=
-                        `
+                const idBoton = `add-cart${producto.id}`
+                acumulador +=
+                    `
         <div class="sect_mv_01">
             <img class="producto-img" src=${producto.img} alt="">
             <h4 class="producto-titulo">${producto.nombre}</h4>
@@ -342,26 +343,15 @@ function filtrarPorNombre(linea) {
             </button>
         </div>
         `
-                    console.log('ID BOTON: ' + idBoton);
-
-                }
-
-
             })
 
             document.getElementById('cont-productos-main').innerHTML = acumulador;
-            agregarProdAlCarrito()
-
-
-
-
         })
-
 }
 
 
 //--------------------------------------------------------------------------------------------//
-
+//FUNCION RENDERIZA TODOS LOS PRODUCTOS DE LA TIENDA
 function renderizarTodosProductos() {
 
     fetch('../stockProductos.json')
@@ -387,13 +377,12 @@ function renderizarTodosProductos() {
             })
 
             document.getElementById('cont-productos-main').innerHTML = acumulador;
-
         })
 }
 
 //--------------------------------------------------------------------------------------------//
 
-//FUNCION HAMBURGUESA
+//FUNCION MENU HAMBURGUESA
 const icoOpen = document.getElementById('ic-han');
 const icoOClose = document.getElementById('ic-han2');
 const menuHamb = document.getElementById('menu-ham2');
@@ -412,17 +401,46 @@ icoOClose.addEventListener('click', e => {
 })
 
 //--------------------------------------------------------------------------------------------//
-function agregarProdAlCarrito() {
+//FUNCION AGREGAR AL CARRITO PRODUCTOS ORDENADOS
+function agregarProdAlCarritoOrd() {
 
     fetch('../stockProductos.json')
         .then((response) => response.json())
         .then(informacion => {
             informacion.forEach((producto) => {
                 const idBoton = `add-cart${producto.id}`
-                console.log('idboton'+idBoton)
                 document.getElementById(idBoton).onclick = () => {
-                    console.log(idBoton)    
-                    console.log(producto.nombre + ' CLICKEADO ')
+                    let nombrePr = producto.nombre
+                    carrito.push(producto)
+                    console.log(carrito)
+
+                    actualizar();
+
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: nombrePr,
+                        html:
+                            'ha sido agregado al <b>carrito</b>',
+                        showConfirmButton: false,
+                        timer: 1800
+                    })
+                }
+            })
+        })
+}
+
+
+//FUNCION AGREGAR AL CARRITO PRODUCTOS FILTRADOS
+function agregarProdAlCarritoFiltr(line) {
+
+    fetch('../stockProductos.json')
+        .then((response) => response.json())
+        .then(informacion => {
+            const productosFiltrados = informacion.filter((producto) => producto.linea === line)
+            productosFiltrados.forEach((producto) => {
+                const idBoton = `add-cart${producto.id}`
+                document.getElementById(idBoton).onclick = () => {
                     let nombrePr = producto.nombre
                     carrito.push(producto)
                     console.log(carrito)
